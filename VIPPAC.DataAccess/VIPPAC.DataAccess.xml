@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VIPPAC.DataAccess</name>
+    </assembly>
+    <members>
+        <member name="T:VIPPAC.DataAccess.Referentials.TableStorageBase`1">
+            <summary>
+            Table Storage Base.
+            </summary>
+            <typeparam name="T">T.</typeparam>
+        </member>
+        <member name="F:VIPPAC.DataAccess.Referentials.TableStorageBase`1.tableName">
+            <summary>
+            The table name.
+            </summary>
+        </member>
+        <member name="F:VIPPAC.DataAccess.Referentials.TableStorageBase`1.tableStorageSettings">
+            <summary>
+            The table storage settings.
+            </summary>
+        </member>
+        <member name="F:VIPPAC.DataAccess.Referentials.TableStorageBase`1.table">
+            <summary>
+            The table.
+            </summary>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.#ctor(Microsoft.Extensions.Options.IOptions{VIPPAC.Entities.Referentials.UserSecretSettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:VIPPAC.DataAccess.Referentials.TableStorageBase`1"/> class.
+            </summary>
+            <param name="options">options.</param>
+        </member>
+        <member name="P:VIPPAC.DataAccess.Referentials.TableStorageBase`1.Table">
+            <summary>
+            Gets the table.
+            </summary>
+            <value>
+            The table.
+            </value>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.Add(`0,VIPPAC.Utils.Enum.FilterType)">
+            <summary>
+            Add row to table T.
+            </summary>
+            <param name="entity">entity.</param>
+            <param name="filter">filter.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.AddOrUpdate(`0,VIPPAC.Utils.Enum.FilterType)">
+            <inheritdoc />
+            <summary>
+            Adds the or update person.
+            </summary>
+            <returns><c>true</c>, if or update person was added, <c>false</c> otherwise.</returns>
+            <param name="entity">Device.</param>
+            <param name="filter">filter.</param>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.CreateTableInStorage">
+            <summary>
+            Creates the table in storage.
+            </summary>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.DeleteRowAsync(`0)">
+            <summary>
+            Delete row of table T.
+            </summary>
+            <param name="entity">entity.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetAllAsync(System.String,VIPPAC.Utils.Enum.FilterType)">
+            <inheritdoc />
+            <summary>
+            Gets the list of rows match with rowKey person.
+            </summary>
+            <returns>Lists of Rows.</returns>
+            <param name="rowKey">User name.</param>
+            <param name="filter">filter.</param>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetAllAsync">
+            <summary>
+            Get all rows from a entity T.
+            </summary>
+            <returns>retruns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetAsync(System.String,VIPPAC.Utils.Enum.FilterType)">
+            <inheritdoc />
+            <summary>
+            Gets the person.
+            </summary>
+            <returns>The person.</returns>
+            <param name="rowKey">User name.</param>
+            <param name="filter">filter.</param>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetByPartitionKeyAndRowKeyAsync(System.String,System.String,VIPPAC.Utils.Enum.FilterType)">
+            <inheritdoc />
+            <summary>
+            Get by GetByPartitionKeyAndRowKeyAsync.
+            </summary>
+            <param name="partitionKey"></param>
+            <param name="rowKey"></param>
+            <param name="filter">filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetByPatitionKeyAsync(System.String)">
+            <inheritdoc />
+            <summary>
+            Get by partitionKey.
+            </summary>
+            <param name="partitionKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetInfoByQuery(System.String)">
+            <summary>
+            .
+            </summary>
+            <param name="filter">filter.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetListAsync">
+            <summary>
+            Get List of Table T.
+            </summary>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetListQueryAsync(System.Collections.Generic.IList{VIPPAC.Entities.ConditionParameter})">
+            <summary>
+            .
+            </summary>
+            <param name="conditionParameters">conditionParameters.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetParticionKeyAndTimeStampCompAsync(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            Query Filter PartitionKey and TimeStamp.
+            </summary>
+            <param name="partitionKey">partitionKey.</param>
+            <param name="beginDate">beginDate.</param>
+            <param name="endDate">endDate.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetSomeAsync(System.String,System.String)">
+            <inheritdoc />
+            <summary>
+            Gets some asynchronous.
+            </summary>
+            <param name="column">The column.</param>
+            <param name="value">The value.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.GetSomeAsync(System.Collections.Generic.IList{VIPPAC.Entities.ConditionParameter})">
+            <summary>
+            Get Some Rows of table T.
+            </summary>
+            <param name="conditionParameters">conditionParameters.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.MultipleAdds(System.Collections.Generic.List{`0})">
+            <summary>
+            .
+            </summary>
+            <param name="entities">entities.</param>
+            <returns>returns.</returns>
+        </member>
+        <member name="M:VIPPAC.DataAccess.Referentials.TableStorageBase`1.CreateTableReference">
+            <summary>
+            Creates the table reference.
+            </summary>
+        </member>
+    </members>
+</doc>
