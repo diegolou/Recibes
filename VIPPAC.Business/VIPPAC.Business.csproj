@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>68e60f14-38cd-4747-9e8f-1bcef83a172e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VIPPAC.Contracts\VIPPAC.Contracts.csproj" />
+    <ProjectReference Include="..\VIPPAC.Entities\VIPPAC.Entities.csproj" />
+    <ProjectReference Include="..\VIPPAC.ExternalServices\VIPPAC.ExternalServices.csproj" />
+    <ProjectReference Include="..\VIPPAC.Utils\VIPPAC.Utils.csproj" />
+  </ItemGroup>
+</Project>
