@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VIPPAC.Services</name>
+    </assembly>
+    <members>
+        <member name="T:VIPPAC.Services.Controllers.CustomerController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.CustomerController.#ctor(VIPPAC.Contracts.Business.ICustomerBl)">
+            <summary>
+            </summary>
+            <param name="customerBusiness"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.CustomerController.RegistryCustomer(VIPPAC.Entities.Requests.RegistryCustomerRequest)">
+            <summary>
+            </summary>
+            <param name="customerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.CustomerController.GetCustomerInfo(VIPPAC.Entities.Requests.CustomerRequest)">
+            <summary>
+            </summary>
+            <param name="customerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.CustomerController.UpdateCustomer(VIPPAC.Entities.Requests.UpdateCustomerRequest)">
+            <summary>
+            </summary>
+            <param name="customerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.CustomerController.GetCustomerPlans(VIPPAC.Entities.Requests.CustomerRequest)">
+            <summary>
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Controllers.GeoLocationController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.GeoLocationController.#ctor(VIPPAC.Contracts.Business.IPackerGeolocationBl)">
+            <summary>
+            </summary>
+            <param name="PackerGeoBusiness"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.GeoLocationController.SetPackerGeoLocation(VIPPAC.Entities.Requests.PackerGeolocationRequest)">
+            <summary>
+            </summary>
+            <param name="packerGeoRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.GeoLocationController.GetPackerGeoLocationCustomer(VIPPAC.Entities.Requests.GetPositionPackerCustomerRequest)">
+            <summary>
+            </summary>
+            <param name="packerGeoRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Controllers.PackagesController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PackagesController.#ctor(VIPPAC.Contracts.Business.IPackageBl)">
+            <summary>
+            </summary>
+            <param name="packageBusiness"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PackagesController.SendPackage(VIPPAC.Entities.Requests.SendPackageRespuest)">
+            <summary>
+            </summary>
+            <param name="packerGeoRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PackagesController.GetCustomerPackageStatus(VIPPAC.Entities.Requests.CustomerPackageStatusRequest)">
+            <summary>
+            </summary>
+            <param name="packerStatusRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PackagesController.GetPackageAvailable">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PackagesController.SetAssignPackage(VIPPAC.Entities.Requests.AssignPackageRequest)">
+            <summary>
+            </summary>
+            <param name="package"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PackagesController.GetActivityDetail(VIPPAC.Entities.Requests.GetActivityDetailRequest)">
+            <summary>
+            </summary>
+            <param name="activity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Controllers.ParametersController">
+             <summary>
+             </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.#ctor(VIPPAC.Contracts.Business.ICountryBl,VIPPAC.Contracts.Business.IParametersBI)">
+             <summary>
+             </summary>
+             <param name="countryBl"></param>
+             <param name="parameterBussines"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetCountries">
+             <summary>
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetCountry(VIPPAC.Entities.Requests.CountryRequest)">
+             <summary>
+             </summary>
+             <param name="code"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetState(VIPPAC.Entities.Requests.StateRequest)">
+             <summary>
+             </summary>
+             <param name="code"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetParameters">
+            <summary>
+            Operation to Get Parameters
+            </summary>
+            <returns></returns>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetParametersByType(System.String)">
+            <summary>
+            Operation to Get Parameters By Type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetAllParametersByType(System.String)">
+            <summary>
+            Operation to Get All Parameters By Type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetSomeParametersByType(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Operation to Get Some Parameters By Type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetCategories">
+             <summary>
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.SetParameterValue(VIPPAC.Entities.Requests.SetParameterValueRequest)">
+             <summary>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetUrlDownloadBlob(VIPPAC.Entities.Requests.GetUrlDownloadBlobRequest)">
+             <summary>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetParamC">
+             <summary>
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetParametersLocation(System.Boolean)">
+             <summary>
+             </summary>
+             <param name="Active"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetTransportType">
+             <summary>
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetPackageType">
+             <summary>
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.GetActiveCities(VIPPAC.Entities.Requests.GetActiveCitiesRequest)">
+             <summary>
+             </summary>
+             <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.UpdateCountry(VIPPAC.Entities.Requests.CountryUpdateRequest)">
+             <summary>
+             </summary>
+             <param name="activecountry"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.UpdateActiveState(VIPPAC.Entities.Requests.StateUpdateRequest)">
+             <summary>
+             </summary>
+             <param name="activestate"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.UpdateActiveCity(VIPPAC.Entities.Requests.CityUpdateRequest)">
+             <summary>
+             </summary>
+             <param name="activecity"></param>
+             <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.ParametersController.SendEmail(VIPPAC.Entities.Requests.EmailRequest)">
+             <summary>
+             </summary>
+             <param name="emailrequest"></param>
+             <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Controllers.PlansController">
+             <summary>
+             </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.#ctor(VIPPAC.Contracts.Business.IPlansBl)">
+             <summary>
+             </summary>
+             <param name="plans"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.GetPlans">
+            <summary>
+            Get public plan list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.GetPlansActive">
+            <summary>
+            Get public plan list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.GetPlansAdmin">
+            <summary>
+            Get all plan list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.GetPlansbyCountries(System.String)">
+            <summary>
+            Get plan lists for a country
+            </summary>
+            <param name="country"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.GetNewPlan(VIPPAC.Entities.Requests.SetPlansRequest)">
+            <summary>
+            Create new plans in "Recibes"
+            </summary>
+            <param name="plans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.UpdatePlan(VIPPAC.Entities.Requests.PlansRequest)">
+            <summary>
+            Update Plans in "Recibes"
+            </summary>
+            <param name="plans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.DeletePlan(System.String,System.String)">
+            <summary>
+            Remove a specific plan
+            </summary>
+            <param name="idCountry">Country code</param>
+            <param name="idPlans">Plan code</param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.DeleteCustomerPrivatePlan(VIPPAC.Entities.Requests.AdminCustomerPrivatePlansRequest)">
+            <summary>
+            Delete customer from a private plan
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.PlansController.AdminCustomersPrivstePlans(VIPPAC.Entities.Requests.AdminCustomerPrivatePlansRequest)">
+            <summary>
+             Add or modify customer from a private plan
+            </summary>
+            <param name="cp"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Controllers.RateController">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.RateController.#ctor(VIPPAC.Contracts.Business.IRateBl,VIPPAC.Contracts.Business.IHoliDaysBl)">
+            <summary>
+            </summary>
+            <param name="rateBusiness"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.RateController.RegistryCustomer(VIPPAC.Entities.Requests.GetRateRequest)">
+            <summary>
+            </summary>
+            <param name="customerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.RateController.SetTransportTypeCharacteristic(VIPPAC.Entities.Requests.SetTransportTypeCharateristic)">
+            <summary>
+            </summary>
+            <param name="ttc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.RateController.UpdateCityRate(VIPPAC.Entities.Requests.RateRequest)">
+            <summary>
+            Update Rate by City in "Recibes"
+            </summary>
+            <param name="ratereuqest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.RateController.PriceTransport(VIPPAC.Entities.Requests.PriceRequest)">
+            <summary>
+            Update Rate by City in "Recibes"
+            </summary>
+            <param name="pricerequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.RateController.GetRateCitiesActive(VIPPAC.Entities.Requests.CountryRequest)">
+            <summary>
+            </summary>
+            <param name="inforequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Controllers.SecurityController">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:VIPPAC.Services.Controllers.SecurityController._UserBussines">
+            <summary>
+            Interface of User business logic
+            </summary>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.SecurityController.#ctor(VIPPAC.Contracts.Business.ISecurityBl)">
+            <summary>
+            Class constructor
+            </summary>
+            <param name="UserBussines"></param>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.SecurityController.AuthenticateUser(VIPPAC.Entities.Requests.AuthenticateUserRequest)">
+            <summary>
+            Operation to Authenticate User
+            </summary>
+            <param name="userRequest"></param>
+            <returns></returns>
+            <author>Juan Sebastián Gil Garnica.</author>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.SecurityController.ActivateUser(VIPPAC.Entities.Requests.ActivationUserRequest)">
+            <summary>
+            Web Api to activate the client in "Recibes"
+            </summary>
+            <param name="userRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VIPPAC.Services.Controllers.SecurityController.ActivationCode(VIPPAC.Entities.Requests.CustomerRequest)">
+            <summary>
+            </summary>
+            <param name="userRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Program">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Program.Main(System.String[])">
+            <summary>
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VIPPAC.Services.Startup">
+             <summary>
+             </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+             <summary>
+             </summary>
+             <param name="configuration"></param>
+        </member>
+        <member name="P:VIPPAC.Services.Startup.Configuration">
+             <summary>
+             </summary>
+        </member>
+        <member name="M:VIPPAC.Services.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+             <summary>
+             </summary>
+             <param name="services"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+             <summary>
+             </summary>
+             <param name="app"></param>
+             <param name="env"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Startup.DependencySettings(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Method to register Dependency Settings
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Startup.DependencyRepositories(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Method to register Dependency Repositories
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:VIPPAC.Services.Startup.DependencyBusiness(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Method to register Dependency Business Logic
+            </summary>
+            <param name="services"></param>
+        </member>
+    </members>
+</doc>

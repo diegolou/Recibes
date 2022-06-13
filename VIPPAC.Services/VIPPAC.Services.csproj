@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>VIPPAC.Services</RootNamespace>
+    <UserSecretsId>998a73b9-f8a9-4c13-b92d-7913c9ed5f59</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Codes\proyectos\VIP-PAC\Services\VIPPAC.Services\VIPPAC.Services.xml</DocumentationFile>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.12.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.AzureKeyVault.HostingStartup" Version="2.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VIPPAC.Business\VIPPAC.Business.csproj" />
+    <ProjectReference Include="..\VIPPAC.Contracts\VIPPAC.Contracts.csproj" />
+    <ProjectReference Include="..\VIPPAC.DataAccess\VIPPAC.DataAccess.csproj" />
+    <ProjectReference Include="..\VIPPAC.Entities\VIPPAC.Entities.csproj" />
+    <ProjectReference Include="..\VIPPAC.ExternalServices\VIPPAC.ExternalServices.csproj" />
+  </ItemGroup>
+</Project>
