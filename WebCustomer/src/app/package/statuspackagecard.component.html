@@ -1,0 +1,38 @@
+<div class="card col-12 mt-2 mx-auto" *ngFor="let ps of _sortedData | paginate: page_size:page_number">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-10">
+        <span class="card-text bold">Id Package:</span>
+        <span class="card-text">{{ ps.activityId }}</span>
+        <br />
+        <span class="card-text bold">Date:</span>
+        <span class="card-text">{{ ps.createDate | date: 'medium':'locale' }}</span>
+        <br />
+        <span class="card-text bold">Assigned Packer:</span>
+        <span class="card-text"
+          ><div *ngIf="ps.packer">{{ ps.packer.firstName }} {{ ps.packer.lastName }}</div></span
+        >
+        <br />
+        <span class="card-text bold">Status:</span>
+        <span class="card-text"> {{ getDescriptionStatus(ps.status) }}</span>
+        <br />
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-end">
+        <button class="btn btn-primary" (click)="viewDetail(ps.activityId)">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card col-12 mt-2 mx-auto" *ngIf="lengthlist === 0">
+  <div class="card-body"><span translate>You do not have packages sent with</span>&nbsp;<b>Recibes</b></div>
+</div>
+<mat-paginator
+  [length]="lengthlist"
+  [pageSize]="page_size"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="handlePage($event)"
+  showFirstLastButtons
+>
+</mat-paginator>

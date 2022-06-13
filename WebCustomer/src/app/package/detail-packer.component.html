@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-2 mb-1 text-center">
+    {{ createDate | date: 'yyyy/MM/dd':locale:locale }} <br />{{ createDate | date: 'hh:mm:ss a':locale:locale }}
+  </div>
+  <div class="col-md-10 mb-1">
+    <div class="card">
+      <ng-container *ngIf="visible; then ip; else nip"></ng-container>
+      <ng-template #ip>
+        <div class="card-header bold">
+          <div class="row">
+            <div class="col-md-10">Asignación Mensajero</div>
+            <div class="col-md-2 text-right"><i class="fas fa-check"></i></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4 col-xl-2 mb-1">
+              <img [src]="_packer.urlImage" alt="..." class="rounded-circle img.pequeña" />
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xl-4 mb-1">
+              <span class="card-text bold">Nombre:</span>
+              <span class="card-text">{{ _packer.firstName }}&nbsp;{{ _packer.lastName }}</span>
+              <br />
+              <span class="card-text bold">Celular:</span>
+              <span class="card-text">{{ _packer.mobile }}</span>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4 col-xl-2 mb-1">
+              <img [src]="_packer.urlVehicle" alt="..." class="rounded-circle" />
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xl-4 mb-1">
+              <span class="card-text bold">Tipo Vehiculo:</span>
+              <span class="card-text">{{ getInfoV(_packer.vehicleType) }}</span>
+              <br />
+              <span class="card-text bold">Marca:</span>
+              <span class="card-text">{{ _packer.brand }}</span>
+              <br />
+              <span class="card-text bold">Referencia:</span>
+              <span class="card-text">{{ _packer.reference }}</span>
+              <br />
+              <span class="card-text bold">Placa:</span>
+              <span class="card-text">{{ _packer.vehiclePlate }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #nip>
+        <div class="card-header bold">
+          <div class="row">
+            <div class="col-md-10">Mensajero por Asignar</div>
+
+            <div class="col-md-2 text-right"><i class="fas fa-hourglass fa-spin"></i></div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

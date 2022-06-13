@@ -1,0 +1,198 @@
+<form (ngSubmit)="sendPackage()" [formGroup]="sendPackageForm" class="needs-validation" novalidate>
+  <div class="container-fluid">
+    <div class="card col-md-12 mt-3 mx-auto">
+      <div class="card-body">
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <div [hidden]="!panelDatos">
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                          <app-citydropdownlist
+                            (onDataChange)="onCityChange($event)"
+                            formControlName="city"
+                            [dataSource]="cityList"
+                          ></app-citydropdownlist>
+                          <div
+                            *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)"
+                            class="invalid-feedback d-block"
+                          >
+                            <span class="text-gray"><em translate>City is required</em></span>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <app-transportdropdownlist
+                            [dataSource]="packageList"
+                            (onDataChange)="onTransportChange($event)"
+                            formControlName="transport"
+                          ></app-transportdropdownlist>
+                          <div
+                            *ngIf="f.transport.invalid && (f.transport.dirty || f.transport.touched)"
+                            class="invalid-feedback d-block"
+                          >
+                            <span class="text-gray"><em translate>Package type is required</em></span>
+                          </div>
+                        </div>
+                      </div>
+                      <app-adminaddress
+                        (onDataChange)="changeAddress($event)"
+                        formControlName="adminaddress"
+                      ></app-adminaddress>
+                      <div
+                        *ngIf="f.adminaddress.invalid && (f.adminaddress.dirty || f.adminaddress.touched)"
+                        class="invalid-feedback d-block"
+                      >
+                        <div *ngIf="f.adminaddress.errors?.minValue">
+                          <span class="text-gray"><em translate>Minimum must add two valid addresses</em></span>
+                        </div>
+                        <div *ngIf="f.adminaddress.errors?.addressInValid">
+                          <span class="text-gray"><em translate>All addresses must be valid</em></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <app-costdetail (onDataChange)="onDateCD($event)"></app-costdetail>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12 mb-3 text-center">
+                  <button
+                    class="btn btn-sm btn-primary bold"
+                    [disabled]="sendPackageForm.invalid"
+                    (click)="onNext()"
+                    type="button"
+                  >
+                    Siguiente&nbsp;<i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div [hidden]="!panelInfo">
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <app-transactiondetail
+                    [mediosTransporte]="transporte"
+                    [tip]="tip"
+                    [insuredValue]="insuredValue"
+                    [tarifaInfo]="tarifaInfo"
+                    [distTimeInfo]="infoDistancia"
+                  ></app-transactiondetail>
+                </div>
+              </div>
+              <!-- <div class="form-row">
+                <div class="col-md-12 mb-3 text-center">
+                  <button class="btn btn-sm btn-primary bold" (click)="onBack()">
+                    <i class="fas fa-angle-left"></i>&nbsp;Anterior
+                  </button>
+                  <button class="btn btn-sm btn-primary bold" (click)="onPagar()">
+                    <i class="far fa-credit-card"></i>&nbsp;Pagar
+                  </button>
+                </div>
+              </div> -->
+            </div>
+            <!-- <div [hidden]="!panelPago">
+              <div class="form-row">
+                <div class="col-md-12 mb-3"></div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12 mb-3 text-center">
+                  <button class="btn btn-sm btn-primary bold" (click)="onBackinfo()">
+                    <i class="fas fa-angle-left"></i>&nbsp;Anterior
+                  </button>
+                  <button class="btn btn-sm btn-primary bold" (click)="pagar()">
+                    <i class="far fa-credit-card"></i>&nbsp;Pagar
+                  </button>
+                </div>
+              </div>
+            </div> -->
+            <!--hasta aqui va-->
+          </div>
+          <div class="col-md-6 mb-3">
+            <div [hidden]="!panelDatos">
+              <app-distanceinfo
+                [distance]="infoDistancia.totalDistance"
+                [tariff]="tarifaInfo.valorTotal"
+              ></app-distanceinfo>
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <agm-map
+                    [latitude]="latitude"
+                    [longitude]="longitude"
+                    [scrollwheel]="true"
+                    [zoom]="zoom"
+                    [fitBounds]="bounds"
+                  >
+                    <div *ngIf="addressAdmin">
+                      <ng-container>
+                        <agm-marker
+                          *ngFor="let marker of addressAdmin.PacAddressList"
+                          [latitude]="marker.lat"
+                          [longitude]="marker.lng"
+                          [label]="marker.id"
+                        >
+                          <agm-info-window>
+                            <h6>Destino {{ marker.id }}</h6>
+                            {{ marker.address }}&nbsp;{{ marker.adnumber }}
+                          </agm-info-window>
+                        </agm-marker>
+                      </ng-container>
+                    </div>
+                  </agm-map>
+                </div>
+              </div>
+            </div>
+            <div [hidden]="!panelInfo">
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <div class="card">
+                    <div class="card-header yellow bold text-center">
+                      <span translate>Payment method</span>
+                    </div>
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                      <table>
+                        <tr>
+                          <td>
+                            <input type="radio" value="CASH" formControlName="paymenttype" disabled />
+                            <span>Efectivo</span>
+                          </td>
+                          <td><img alt="efectivo" src="assets/Monedas.48x64.png" /></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="radio" value="PLAN" formControlName="paymenttype" />
+                            <span>Recibes Plan</span>
+                          </td>
+                          <td><img alt="efectivo" src="assets/billeteRecibe150x64.png" /></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <input type="radio" value="WAMPI" formControlName="paymenttype" />
+                            <span>Medios Electronicos</span>
+                          </td>
+                          <td><img alt="efectivo" src="assets/PagosElectronicos258x64.png" /></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12 mb-3 text-center">
+                  <button class="btn btn-sm btn-primary bold" (click)="onBack()" type="button">
+                    <i class="fas fa-angle-left"></i>&nbsp;Anterior
+                  </button>
+                  <button class="btn btn-sm btn-primary bold" type="submit">
+                    <i class="fas fa-shipping-fast"></i>&nbsp;<span translate>Solicitar envío</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

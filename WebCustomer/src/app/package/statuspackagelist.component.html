@@ -1,0 +1,47 @@
+<table class="table" matSort (matSortChange)="sortData($event)">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" mat-sort-header="date"><span translate>Date</span></th>
+      <th scope="col" mat-sort-header="activityid">Id Package</th>
+      <th scope="col" mat-sort-header="apacker"><span translate>Assigned Packer</span></th>
+      <th scope="col" mat-sort-header="status"><span translate>Status</span></th>
+      <th scope="col" class="text-center"><span translate>Detail</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ps of _sortedData | paginate: page_size:page_number">
+      <!-- <th scope="row" class="align-middle">{{ i }}</th> -->
+      <td class="align-middle text-center">{{ ps.createDate | date: 'medium':'locale' }}</td>
+      <td class="align-middle text-center">{{ ps.activityId }}</td>
+      <td class="align-middle text-center">
+        <div *ngIf="ps.packer">{{ ps.packer.firstName }} {{ ps.packer.lastName }}</div>
+      </td>
+      <td class="lines text-center align-middle">
+        {{ getDescriptionStatus(ps.status) }}
+      </td>
+      <td class="text-center">
+        <button class="btn btn-primary" (click)="viewDetail(ps.activityId)">
+          <i class="fas fa-search"></i>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="lengthlist === 0">
+      <td colspan="6" class="text-center">
+        <br />
+        <br />
+        <span translate>You do not have packages sent with</span>&nbsp;<b>Recibes</b>
+        <br />
+        <br />
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<mat-paginator
+  [length]="lengthlist"
+  [pageSize]="page_size"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="handlePage($event)"
+  showFirstLastButtons
+>
+</mat-paginator>

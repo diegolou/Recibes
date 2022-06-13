@@ -1,0 +1,167 @@
+<!-- <button class="btn btn-primary w-100" (click)="openDialog()">Ver Detalle</button> -->
+
+<!-- <ng-template #content let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">Profile update</h5> -->
+<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+<!-- </div>
+  <div class="modal-body">
+
+    hola mundo
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary btn-sm" (click)="modal.close('Save click')">Save</button>
+  </div>
+
+</ng-template> -->
+
+<!-- <mat-dialog-content> -->
+<!-- <h3 class="text-center">
+    <b><span translate>Track packages</span></b>
+  </h3> -->
+<div class="container-fluid">
+  <div class="card col-md-12 mt-3 mx-auto">
+    <div class="card-body">
+      <div class="form-row">
+        <!-- Id Type and number -->
+        <div class="col-md-6 mb-1">
+          <app-detail-address [AddressInfoList]="addressInfoList" [createDate]="createDate"></app-detail-address>
+          <app-detail-packer [PackerInfo]="packerInfo" [createDate]="asingPackerDate"></app-detail-packer>
+          <ng-container *ngIf="startProcess">
+            <app-detail-step
+              [Running]="!startProcess"
+              Title="En Transito"
+              [createDate]="asingPackerDate"
+            ></app-detail-step>
+            <ng-container *ngFor="let address of addressInfoList; let i = index">
+              <ng-container [ngSwitch]="true">
+                <ng-container *ngSwitchCase="address.status == 'running'">
+                  <app-detail-step [Running]="true" [DataSource]="address"></app-detail-step>
+                </ng-container>
+                <ng-container *ngSwitchCase="address.status == 'finalized'">
+                  <app-detail-step [Running]="false" [DataSource]="address"></app-detail-step>
+                </ng-container>
+              </ng-container>
+
+              <!-- <div *ngIf="address.status != 'waiting'">
+              <app-detail-step [Running]="false" [Title]="formatAddress(address.address,address.adnumber)" ></app-detail-step>
+              </div> -->
+              <div *ngIf="address.status == 'finalized' && i != final">
+                <app-detail-step Running="true" Title="En Transito"></app-detail-step>
+              </div>
+            </ng-container>
+          </ng-container>
+          <!-- <div class="row">
+            <div class="col-md-2 mb-1 text-center">
+              2020/09/24
+              <br />
+              04:40 P.M.
+            </div>
+            <div class="col-md-10 mb-1">
+              <div class="card">
+                <div class="card-header bold">Cra. 8a # 153 - 51</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-10 mb-1">
+                      <span class="card-text bold">Descripción:</span>
+                      <span class="card-text">Se recogen dos cartas</span>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                      <button type="button" class="btn btn-primary"><i class="fas fa-image"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 mb-1 text-center">
+              2020/09/24
+              <br />
+              04:45 P.M.
+            </div>
+            <div class="col-md-10 mb-1">
+              <div class="card">
+                <div class="card-header bold">En Transito</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 mb-1 text-center">
+              2020/09/24
+              <br />
+              05:10 P.M.
+            </div>
+            <div class="col-md-10 mb-1">
+              <div class="card">
+                <div class="card-header bold">Cra 13a # 113 - 42</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-10 mb-1">
+                      <span class="card-text bold">Descripción:</span>
+                      <span class="card-text">Se entregan las cartas</span>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                      <button type="button" class="btn btn-primary"><i class="fas fa-image"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="col-md-6 mb-1">
+          <agm-map
+            [latitude]="latitude"
+            [longitude]="longitude"
+            [scrollwheel]="true"
+            [zoom]="zoom"
+            [fitBounds]="bounds"
+          >
+            <ng-container>
+              <agm-polyline>
+                <agm-polyline-point
+                  *ngFor="let polyline of polylines; let i = index"
+                  [latitude]="polyline.latitude"
+                  [longitude]="polyline.longitude"
+                >
+                </agm-polyline-point>
+                <!-- <agm-marker-cluster maxZoom="13" imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m"> -->
+                <!-- <agm-marker *ngFor="let marker of markers"
+                  [latitude]="marker.latitude"
+                  [longitude]="marker.longitude"
+                  [iconUrl]="marker.iconUrl"
+                  [visible]="marker.category == 'categoryA'">
+                    <agm-info-window>
+                        <h2>{{marker.title}}</h2>
+                        <a routerLink="{{ marker.url }}">Details</a>
+                    </agm-info-window>
+                </agm-marker> -->
+                <agm-marker
+                  *ngFor="let marker of addressInfoList"
+                  [latitude]="marker.lat"
+                  [longitude]="marker.lng"
+                  [label]="marker.id"
+                >
+                  <agm-info-window>
+                    <h6>Destino {{ marker.id }}</h6>
+                    {{ marker.formattedaddress }}
+                  </agm-info-window>
+                </agm-marker>
+                <!-- </agm-marker-cluster> -->
+              </agm-polyline>
+            </ng-container>
+          </agm-map>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-primary bold">
+    <span translate>Close</span>
+  </button>
+</mat-dialog-actions> -->

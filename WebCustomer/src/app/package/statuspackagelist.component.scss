@@ -1,0 +1,24 @@
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "src/theme/theme-variables";
+.lines {
+  line-height: 15px;
+}
+
+.my-class .mat-dialog-container {
+  height: 400px;
+  width: 600px;
+  border-radius: 10px;
+  background: lightcyan;
+  color: #039be5;
+}
+
+.table .thead-dark th {
+  color: $black;
+  background-color: $yellow;
+  border-color: $yellow;
+}
+
+// .mat-sort-header-container {
+//   align-items: center;
+// }

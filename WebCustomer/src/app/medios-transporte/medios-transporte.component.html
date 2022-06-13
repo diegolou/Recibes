@@ -1,0 +1,15 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet" />
+<div>
+  <mat-button-toggle-group
+    #group="matButtonToggleGroup"
+    appearance="legacy"
+    aria-label="Font Style"
+    [(ngModel)]="vehiculoseleccionado"
+    (click)="onSelect()"
+  >
+    <mat-button-toggle *ngFor="let x of vehiculos" [value]="x" aria-label="x.name">
+      {{ x.name }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <!-- <app-medios-transporte-detail [vehiculoseleccionado]="vehiculoseleccionado"></app-medios-transporte-detail> -->
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="card col-md-12 mt-3 mx-auto">
+    <div class="card-body">
+      <h2 class="card-title text-center">
+        <b><span translate>Payments</span></b>
+      </h2>
+      <div class="col-md-12 mb-3 text-center">
+        <h4>
+          <span translate>Payments RECIBES</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card mt-2">
+    <div class="card-header d-flex align-items-center">
+      <h5 class="card-title"><span translate>Payment Information</span></h5>
+    </div>
+    <!-- </div> -->
+    <div class="card-body">
+      <div class="form-row">
+        <div class="col-md-3 mb-3"></div>
+        <div class="col-md-3 mb-3" translate>
+          <h5><b>Payment reference:</b></h5>
+        </div>
+        <div class="col-md-3 mb-3" translate>
+          <h5>{{ infoPayment.reference }}</h5>
+        </div>
+        <div class="col-md-3 mb-3"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-3 mb-3"></div>
+        <div class="col-md-3 mb-3" translate>
+          <h5><b>Payment id:</b></h5>
+        </div>
+        <div class="col-md-3 mb-3" translate>
+          <h5>{{ infoPayment.paymentId }}</h5>
+        </div>
+        <div class="col-md-3 mb-3"></div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3 mb-3"></div>
+        <div class="col-md-3 mb-3" translate>
+          <h5><b>payment type</b></h5>
+        </div>
+        <div class="col-md-3 mb-3" translate>
+          <h5>{{ infoPayment.paymentT }}</h5>
+        </div>
+        <div class="col-md-3 mb-3"></div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3 mb-3"></div>
+        <div class="col-md-3 mb-3" translate>
+          <h5><b>Total payment</b></h5>
+        </div>
+        <div class="col-md-3 mb-3" translate>
+          <h5>{{ infoPayment.totalP | currency }}</h5>
+        </div>
+        <div class="col-md-3 mb-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
