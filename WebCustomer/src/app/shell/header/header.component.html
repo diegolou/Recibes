@@ -1,0 +1,260 @@
+<header>
+  <div class="infoheader">
+    <div class="row">
+      <div class="col-md-2 hidden-xs hidden-sm"></div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <img alt="Recibes" src="assets/Recibes-Logo203x57.jpg" />
+      </div>
+      <div
+        class="col-xs-12 col-sm-12 col-md-4 nameUser d-flex justify-content-end align-items-center"
+        *ngIf="!isAuthenticated"
+      >
+        <button class="btn btn-primary bold" type="button" (click)="login()" translate>
+          <i class="fas fa-sign-in-alt"></i>
+          Sign In
+        </button>
+        &nbsp;
+        <button class="btn btn-primary bold" type="button" (click)="register()" translate>
+          <i class="fas fa-user-plus"></i>
+          Register
+        </button>
+      </div>
+      <div
+        class="col-xs-12 col-sm-12 col-md-4 nameUser d-flex justify-content-end align-items-center"
+        *ngIf="isAuthenticated"
+      >
+        <b>{{ 'Logged in as' | translate }} {{ username }}&nbsp;&nbsp;</b>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- <a class="navbar-brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a> -->
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="!menuHidden"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+      <div class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
+              <i class="fas fa-home"></i>
+              <span translate>Home</span>
+            </a>
+          </li>
+          <!-- Level one dropdown -->
+          <li class="nav-item dropdown">
+            <a
+              id="dropdownMenu1"
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="nav-link dropdown-toggle text-uppercase"
+              ><!-- <i class="fas fa-cogs"></i> -->
+              <i class="fas fa-toolbox"></i>
+              <span translate>Pruebas</span></a
+            >
+            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/tools/pruebas" routerLinkActive="active"
+                  ><i class="fas fa-cog"></i> <span translate>Pruebas</span></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/pruebacamara" routerLinkActive="active">
+                  <i class="fas fa-camera"></i>
+                  <span translate>Pruebas Camara</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/pruebasgoolgemaps" routerLinkActive="active">
+                  <i class="far fa-map"></i>
+                  <span translate>Pruebas GoogleMaps</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/pruebarastreo" routerLinkActive="active">
+                  <i class="far fa-map"></i>
+                  <span translate>Pruebas Polyline Seguimiento Packer</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/pruebacomplate" routerLinkActive="active">
+                  <i class="far fa-map"></i>
+                  <span translate>Pruebas autocompletado</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/pruebaadminaddress" routerLinkActive="active">
+                  <i class="far fa-map"></i>
+                  <span translate>Pruebas adminaddress</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/pruebapanel" routerLinkActive="active">
+                  <i class="far fa-map"></i>
+                  <span translate>Pruebas Panel</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              id="dropdownMenu1"
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="nav-link dropdown-toggle text-uppercase"
+            >
+              <i class="fas fa-box"></i>
+              <span translate>Customer</span></a
+            >
+            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/customer/update" routerLinkActive="active">
+                  <i class="fas fa-mail-bulk"></i> <span translate>Update</span></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              id="dropdownMenu1"
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="nav-link dropdown-toggle text-uppercase"
+            >
+              <i class="fas fa-box"></i>
+              <span translate>Plans</span></a
+            >
+            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/plans" routerLinkActive="active">
+                  <i class="fas fa-mail-bulk"></i> <span translate>Available plans</span></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              id="dropdownMenu1"
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="nav-link dropdown-toggle text-uppercase"
+            >
+              <i class="fas fa-box"></i>
+              <span translate>Package</span></a
+            >
+            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/package/send" routerLinkActive="active">
+                  <i class="fas fa-mail-bulk"></i> <span translate>Send package</span></a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/package/track" routerLinkActive="active">
+                  <i class="fas fa-truck-moving"></i> <span translate>Track Package</span></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              id="dropdownMenu1"
+              href="#"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              class="nav-link dropdown-toggle text-uppercase"
+            >
+              <i class="fas fa-box"></i>
+              <span translate>Payments</span></a
+            >
+            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+              <li>
+                <a class="dropdown-item text-uppercase" routerLink="/payments/history" routerLinkActive="active">
+                  <i class="fas fa-mail-bulk"></i> <span translate>History</span></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
+              <i class="fas fa-question-circle"></i>
+              <span translate>About</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-nav ml-auto">
+        <app-language-selector inNavbar="true" menuClass="dropdown-menu dropdown-menu-right"></app-language-selector>
+        <div *ngIf="!isAuthenticated">
+          <div class="nav-item" ngbDropdown>
+            <a id="user-dropdown" class="nav-link" ngbDropdownToggle>
+              <i class="fas fa-user-circle"></i>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="user-dropdown" class="dropdown-menu dropdown-menu-right">
+              <h6 class="dropdown-header">
+                <b><span translate>APP_NAME</span></b>
+              </h6>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="register()" translate>
+                <i class="fas fa-user-plus"></i>
+                Register
+              </button>
+              <button class="dropdown-item" (click)="login()" translate>
+                <i class="fas fa-sign-in-alt"></i>
+                Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="isAuthenticated">
+          <div class="nav-item" ngbDropdown>
+            <a id="user-dropdown" class="nav-link" ngbDropdownToggle>
+              <i class="fas fa-user-circle"></i>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="user-dropdown" class="dropdown-menu dropdown-menu-right">
+              <h6 class="dropdown-header">
+                <span translate>Logged in as</span> <b>{{ username }}</b>
+              </h6>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span translate>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="infoheader">
+    <div class="row">
+      <div class="col-6">
+        <span class="reloj"
+          >&nbsp;&nbsp;{{ weekday | translate }} {{ dia }} {{ mes | translate }} {{ anio }} {{ hora }}:{{ minutos }}:{{
+            segundos
+          }}
+          {{ ampm }}</span
+        >
+      </div>
+      <div class="col-6 nameUser text-right" *ngIf="isAuthenticated">
+        <b>{{ 'Logged in as' | translate }} {{ username }}&nbsp;&nbsp;</b>
+      </div>
+    </div>
+  </div> -->
+</header>

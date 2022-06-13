@@ -1,0 +1,82 @@
+@import "src/theme/theme-variables";
+// @import "~@fortawesome/fontawesome-free/scss/solid.scss";
+
+.navbar {
+  // margin-bottom: $spacer;
+  margin-bottom: 0;
+}
+
+.nav-link.dropdown-toggle {
+  cursor: pointer;
+}
+
+.infoheader {
+  // background: $gray-800;
+  background: white;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+}
+
+.reloj {
+  // color: $gray-600;
+  color: $black;
+}
+
+.nameUser {
+  // color: $gray-400;
+  color: $black;
+}
+// $spacer: 0 ;
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > a:after {
+  content: "\f0da";
+  float: right;
+  border: none;
+  font-family: "Font Awesome\ 5 Free";
+  font-weight: 900;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: black;
+}
+
+.navbar-dark .navbar-brand {
+  color: black;
+  // font : bold;
+}
+
+.dropdown-header {
+  color: black;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: black;
+}
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: black;
+}
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: black;
+}
+// .dropdown-item.active, .dropdown-item:active{
+//   color:$black;
+//   text-decoration: none;
+//   background-color:$yellow;
+// }

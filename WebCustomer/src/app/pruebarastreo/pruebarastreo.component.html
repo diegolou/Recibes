@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Angular 2 + Google Maps polyline</h1>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="packerid" translate>Packer Id</label>
+      <input type="text" class="form-control" id="packerid" [(ngModel)]="packerid" />
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="activityid" translate>ActivityId</label>
+      <input type="text" class="form-control" id="activityid" [(ngModel)]="activityId" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="activityid" translate>Kalmanconstant </label>
+      <input type="text" class="form-control" id="activityid" [(ngModel)]="kalmanConstant" />
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="filtro" />
+      <label class="form-check-label" for="defaultCheck1"> Filtro Kalman </label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <button class="btn btn-primary w-100" type="button" (click)="drawPolyline()">
+        <!-- <i class="fas fa-cog fa-spin" [hidden]="!isCanceling"></i> -->
+        <span translate>Draw </span>
+      </button>
+    </div>
+  </div>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom">
+    <ng-container>
+      <!-- <agm-polyline *ngFor="let polyline of polylines; let i = index" [strokeColor]="polyline.color">
+        <agm-polyline-point
+          *ngFor="let point of polyline.path"
+          [latitude]="point.latitude"
+          [longitude]="point.longitude"
+        >
+        </agm-polyline-point>
+      </agm-polyline> -->
+      <agm-polyline>
+        <agm-polyline-point
+          *ngFor="let polyline of polylines; let i = index"
+          [latitude]="polyline.latitude"
+          [longitude]="polyline.longitude"
+        >
+        </agm-polyline-point>
+      </agm-polyline>
+    </ng-container>
+  </agm-map>
+</div>

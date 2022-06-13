@@ -1,0 +1,33 @@
+<p>pruebaadminaddress works!</p>
+<app-adminaddress (onDataChange)="change($event)"></app-adminaddress>
+<div class="form-row" *ngFor="let ps of lista; let i = index">
+  idControl : {{ ps.id }} - Latitude : {{ ps.lat }} - Logitude : {{ ps.lng }} - address : {{ ps.address }} - details :
+  {{ ps.details }} - instruction : {{ ps.Instruccions }} - type : {{ ps.type }}
+</div>
+
+<app-dist-address [addresses]="lista"></app-dist-address>
+<div class="form-row">
+  <button (click)="getDistancia1('BICYCLING')">Direccion</button>
+</div>
+<div class="form-row">
+  <span><b>Distancia Total:</b>{{ resultDist.totalDistance }}</span>
+  <span><b>Duración Total:</b>{{ resultDist.totalDuration }}</span>
+</div>
+
+<div class="form-row" *ngFor="let ps of resultDist.detail; let i = index">
+  <span><b>Direccion :</b>{{ i }}</span>
+  <span><b>Distancia :</b>{{ ps.distance }}</span>
+  <span><b>Duración :</b>{{ ps.duration }}</span>
+</div>
+
+<div class="form-row">
+  <!-- <input type="date" [ngModel]="fechaprueba" /> -->
+  <input
+    [ngModel]="fechaprueba | date: 'yyyy-MM-dd':'GMT-0500'"
+    (ngModelChange)="fechaprueba = $event"
+    placeholder="fecha"
+    #fecha
+    type="date"
+  />
+  <button type="button" (click)="validarfecha()">Validar Fecha</button>
+</div>

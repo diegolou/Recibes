@@ -1,0 +1,84 @@
+<!-- Latitude:{{ latitude }}
+<br />
+Logitude:{{ longitude }}
+<br />
+LatitudeP:{{ latitudeP }}
+<br />
+LogitudeP:{{ longitudeP }}
+<br />
+<button type="button" (click)="getinfolocation()">Prueba</button>
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+  <span translate>Address</span>
+  <app-pac-addressligth
+    [placeholder]="'Customer Address' | translate"
+    formControlName="pacaddress"
+  ></app-pac-addressligth>
+  <div class="invalid-feedback d-block" *ngIf="f.pacaddress.invalid && (f.pacaddress.dirty || f.pacaddress.touched)">
+    <div *ngIf="f.pacaddress.errors?.required">
+      <span class="text-gray"><em translate>This field is required</em></span>
+    </div>
+    <div *ngIf="f.pacaddress.errors?.addressValid">
+      <span class="text-gray"><em translate>Dirección debe ingresar un dirección valida</em></span>
+    </div>
+  </div> -->
+<!-- <div formArrayName="addressList">
+    <div *ngFor="let address of addressList.controls; let i = index">
+      <div [formGroupName]="i">
+        <app-pac-address
+          formControlName="pacaddress"
+          [idclass]="i"
+          [hidden]="validHiddencontrol(i)"
+          (deleteAddress)="deleteAddress($event)"
+        ></app-pac-address>
+        <div
+          class="invalid-feedback d-block"
+          *ngIf="
+            addressList.controls[i].get('pacaddress').invalid &&
+            (addressList.controls[i].get('pacaddress').dirty || addressList.controls[i].get('pacaddress').touched)
+          "
+        >
+          <div *ngIf="addressList.controls[i].get('pacaddress').errors?.required">
+            <span class="text-gray"><em translate>This field is required</em></span>
+          </div>
+          <div *ngIf="addressList.controls[i].get('pacaddress').errors?.addressValid">
+            <span class="text-gray"><em translate>Dirección debe ingresar un dirección valida</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- <p>
+    <button type="button" (click)="onSubmit()">Submit</button>
+  </p>
+</form> -->
+<!-- {{ f.pacaddress.value | json }} <p>
+  <button type="button" (click)="addpacAddress()">Add</button>
+</p> -->
+<!-- <app-pac-phone></app-pac-phone>
+<input type="text" prefix="+7" mask="(000) 000 00 00" />
+<ngx-intl-tel-input
+  [cssClass]="'form-control'"
+  [enableAutoCountrySelect]="false"
+  [enablePlaceholder]="true"
+  [enableAutoCountrySelect]="false"
+  [separateDialCode]="true"
+  [searchCountryFlag]="false"
+  [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+  [selectFirstCountry]="true"
+  [selectedCountryISO]="CountryISO.Colombia"
+  [phoneValidation]="true"
+  [onlyCountries]="[CountryISO.Colombia]"
+  name="mobileNumber"
+></ngx-intl-tel-input>
+
+<button type="button" (click)="routerOk()">Router Ok</button>
+<button type="button" (click)="routerError()">Router error</button>
+<button (click)="generatePdf()">Open PDF</button> -->
+<!-- <app-statuspackagecard></app-statuspackagecard>
+<app-statuspackagecard></app-statuspackagecard> -->
+<app-idperson typeOfPerson="NITPN" Mask="000.000.000"></app-idperson>
+<input type="text" mask="000.000.000" class="form-control" />
+----------------------------
+<input type="text" currencyMask class="form-control" />
+<button (click)="click()">Consulta Cliente</button>

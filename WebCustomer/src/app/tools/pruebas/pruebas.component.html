@@ -1,0 +1,264 @@
+<!-- <div class="container">
+  <div class="form-group">
+    <label for="valor">Valor a encriptar</label>
+    <input type="text" class="form-control" (input)="value = $event.target.value" />
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-success" (click)="encriptar()">Encriptar</button>
+    <button type="button" class="btn btn-success" (click)="desencriptar()">Desencriptar</button>
+  </div>
+  <div class="form-group">
+    <label for="crypto">Valor Encriptado</label>
+  -->
+<!-- <input type="text" class="form-control" id="crypto" /> -->
+<!--  <p>
+      <b>{{ crypto }}</b>
+    </p>
+  </div>
+-->
+<!--  <div class="form-group">
+    <label for="crypto">Tipo Identificación</label>
+    --><!-- <input type="text" class="form-control" id="crypto" /> -->
+<!--<select class="form-control">
+      <option *ngFor="let item of idTypeList" [value]="item.id">{{ item.value }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="paises">Pais</label>
+  --><!-- <input type="text" class="form-control" id="crypto" /> -->
+<!--   <select class="form-control" id="paises" [(ngModel)]="selectedCountry" (ngModelChange)="onChangeCountry($event)">
+      <option [ngValue]="null" disabled>Seleccione el Pais</option>
+      <option *ngFor="let item of countriesList" [value]="item.code">{{ item.name }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="depto">Departamento</label>
+    --><!-- <input type="text" class="form-control" id="crypto" /> -->
+<!--    <select class="form-control" id="depto" [(ngModel)]="selectedState" (ngModelChange)="onChangeState($event)">
+      <option [ngValue]="null" disabled>Seleccione el Departemento</option>
+      <option *ngFor="let item of statesList" [value]="item.name">{{ item.name }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="ciudades">Ciudad</label>
+  -->
+<!-- <input type="text" class="form-control" id="crypto" /> -->
+<!--    <select class="form-control" id="ciudades" [(ngModel)]="selectedCity">
+      <option [ngValue]="null" disabled>Seleccione la Ciudad</option>
+      <option *ngFor="let item of citiesList" [value]="item.name">{{ item.name }}</option>
+    </select>
+  </div>
+-->
+<!-- <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="model.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo"
+               [(ngModel)]="model.alterEgo" name="alterEgo">
+      </div>
+
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"
+                required
+                [(ngModel)]="model.power" name="power"
+                #power="ngModel">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+        <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9">{{ model.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9">{{ model.alterEgo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9">{{ model.power }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>-->
+
+<!-- <p>Your favorite type of pie is: {{selectedMedioTransporte}}</p> -->
+
+<!-- <div class="form-row">
+  <div class="col-md-1 mb-3"></div> -->
+<!-- Pedidos -->
+<!-- <div class="col-md-6 mb-3">
+    <div class="col-md-6 mb-3">
+      <label for="typeOfService" translate>Tipo de Servicio</label>
+    </div>
+    <div class="col-md-6 mb-3">
+      <input type="radio" value="ida" name="gender" ngModel /> Ida
+      <input type="radio" value="vuelta" name="gender" ngModel /> Ida y Vuelta
+    </div>
+    <div>
+      <label for="sendAdress" translate>Punto de Partida</label> -->
+<!--<input type="text" id="sendAdress" formControlName="sendAdress" autocomplete="sendAdress" value="" required />
+      <button (click)="agregarAddMap()">
+        MAPA
+      </button>-->
+<!--<input id="sendAddress" ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)" />
+      {{ formattedaddress }}
+    </div>
+<div
+        class="invalid-feedback d-block"
+        *ngIf="!!f.sendAdress.invalid && (!!f.sendAdress.dirty || !!f.sendAdress.touched)"
+      >
+      <div *ngIf="!!f.sendAdress.errors.required">
+        <span class="text-gray"><em translate>This field is required</em></span>
+      </div>
+    -->
+<!-- <form [formGroup]="formulario">
+      <div formArrayName="experienciaLaboral">
+        <div *ngFor="let trabajo of experienciaLaboral.controls; let i = index">
+          <div>
+            <app-pac-address [idclass]="(i)" (propagar)="procesacontrol($event, 0)"></app-pac-address>
+            {{ formattedaddress }}
+            <button (click)="borrarTrabajo(i)">Borrar</button>
+          </div>
+        </div>
+      </div>
+      <button (click)="anadirExperienciaLaboral()">
+        + Añadir
+      </button>
+      <div>
+        <label>Instrucciones:</label><br />
+        <textarea></textarea>
+      </div> -->
+<!-- <input type="radio" value="Bicycle" name="gender" ngModel /> Bicycle
+      <input type="radio" value="moto" name="gender" ngModel /> Moto
+      <div class="col-md-6 mb-3">
+        <agm-map
+          [latitude]="lat"
+          [longitude]="lng"
+          (mapClick)="mapClicked($event.coords.lat, $event.coords.lng)"
+          [zoom]="zoom"
+        >
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+      <div>
+        <label for="Insurance" translate>Valor a asegurar</label>
+        <input type="text" id="Insurance" formControlName="Insurance" autocomplete="Insurance" value="" required />
+        <button (click)="agregarAddMap()">
+          MAPA
+        </button>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3 md-3"></div>
+        <div class="col-md-3 mb-3">
+          <button class="btn btn-primary w-100" type="submit">
+            <i class="fas fa-cog fa-spin"></i>
+            <span translate>Solicitar</span>
+          </button>
+        </div>
+        <div class="col-md-3 mb-3">
+          <button class="btn btn-primary w-100" type="button" (click)="cancel()">
+            <i class="fas fa-cog fa-spin"></i>
+            <span translate>Cancel</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+<!-- <div class="container">
+  <div class="card col-md-12 mt-3 mx-auto">
+    <div class="card-body">
+      <h2 class="card-title text-center">
+        <b><span translate>Send Package</span></b>
+      </h2>
+      <app-tipo-servicios (propagar)="procesaPropagar($event)"></app-tipo-servicios>
+      <mat-vertical-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Seleccione el tipo de servicio</ng-template>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required />
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Selecciones las direcciones de recepción y envío</ng-template>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+
+              <input matInput placeholder="Last name, First name" formControlName="secondCtrl" required />
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Seleccione el tipo de Vehiculo deseado para su envío</ng-template>
+
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Solicitar envío</ng-template>
+          <p>El valor de su envío es:</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Solicitar</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+      <app-medios-transporte [selectedtiposervicio]="selectedTypoServicio"></app-medios-transporte>
+      <app-pac-address [idclass]="OriAdressId" (propagar)="procesacontrol($event, 0)"></app-pac-address>
+      <app-pac-address [idclass]="DestAdressId" (propagar)="procesacontrol($event, 0)"></app-pac-address>
+      <app-dist-address></app-dist-address>
+    </div>
+  </div>
+</div> -->
+<!-- <app-pac-planes></app-pac-planes> -->
+aqui estoy
+<p>
+  <button type="button" (click)="clic()">Wampi</button>
+  <button type="button" (click)="clicGuid()">CodigoReferencia</button>
+  <b>Guid:</b>{{ this.guidId }} <b>RefenciaId:</b>{{ this.referenciaId }}
+</p>
+<p>
+  <button type="button" (click)="clicPayment()">Payment</button>
+  <button type="button" (click)="clicPaymentNo()">PaymentNo</button>
+</p>

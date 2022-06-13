@@ -1,0 +1,396 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark default-color">
+  <div class="container">
+    <img alt="Recibes" src="assets/Recibes-Logo203x57.jpg" />
+
+    <div class="d-inline-block ml-3">
+      <app-language-selector inNavbar="true" class="navbar-nav ml-auto"></app-language-selector>
+    </div>
+  </div>
+</nav>
+
+<div class="container bg-light">
+  <div class="login-box">
+    <div></div>
+    <div class="container">
+      <div class="card col-md-9 mt-3 mx-auto">
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            <i class="fas fa-3x fa-user-plus text-muted"></i>
+          </h4>
+          <form
+            (ngSubmit)="registry()"
+            [formGroup]="registryForm"
+            class="needs-validation"
+            novalidate
+            autocomplete="off"
+          >
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      formControlName="customertype"
+                      value="N/A"
+                      name="customertype"
+                      (change)="clickcustomertype(false)"
+                    />Persona Natural
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      formControlName="customertype"
+                      value="NITPJ"
+                      name="customertype"
+                      (change)="clickcustomertype(true)"
+                    />Empresa
+                  </label>
+                </div>
+              </div>
+            </div>
+            <ng-container *ngIf="!empresa">
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" translate>First name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    formControlName="firstName"
+                    autocomplete="firstName"
+                    [placeholder]="'First name' | translate"
+                    value=""
+                    required
+                  />
+                  <div
+                    class="invalid-feedback d-block"
+                    *ngIf="!!f.firstName.invalid && (!!f.firstName.dirty || !!f.firstName.touched)"
+                  >
+                    <div *ngIf="!!f.firstName.errors.required">
+                      <span class="text-gray"><em translate>This field is required</em></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName" translate>Last name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    formControlName="lastName"
+                    autocomplete="lastName"
+                    [placeholder]="'Last name' | translate"
+                    value=""
+                  />
+                  <div
+                    class="invalid-feedback d-block"
+                    *ngIf="!!f.lastName.invalid && (!!f.lastName.dirty || !!f.lastName.touched)"
+                  >
+                    <div *ngIf="!!f.lastName.errors.required">
+                      <span class="text-gray"><em translate>This field is required</em></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="empresa">
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" translate>Type of Person</label>
+                  <input type="text" class="form-control" value="NIT Persona Juridica" readonly />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="idNumber" translate>Person Id</label>
+                  <app-idperson
+                    [typeOfPerson]="typeOfPerson[1].code"
+                    [Mask]="typeOfPerson[1].mask"
+                    formControlName="idNumber"
+                  ></app-idperson>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label for="firstName" translate>Company Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="companyName"
+                    formControlName="companyName"
+                    autocomplete="lastName"
+                    [placeholder]="'Company Name' | translate"
+                    value=""
+                  />
+                  <div
+                    class="invalid-feedback d-block"
+                    *ngIf="!!f.lastName.invalid && (!!f.lastName.dirty || !!f.lastName.touched)"
+                  >
+                    <div *ngIf="!!f.lastName.errors.required">
+                      <span class="text-gray"><em translate>This field is required</em></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <div class="form-row" formGroupName="EmailValidationForm">
+              <div class="col-md-6 mb-3">
+                <label for="eMail" translate>Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="eMail"
+                  formControlName="eMail"
+                  autocomplete="eMail"
+                  [placeholder]="'Email' | translate"
+                  value=""
+                  required
+                />
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="
+                    !!f.EmailValidationForm['controls'].eMail.invalid &&
+                    (!!f.EmailValidationForm['controls'].eMail.dirty ||
+                      !!f.EmailValidationForm['controls'].eMail.touched)
+                  "
+                >
+                  <div *ngIf="!!f.EmailValidationForm['controls'].eMail.errors.required">
+                    <span class="text-gray"><em translate>This field is required</em></span>
+                  </div>
+                  <div *ngIf="!!f.EmailValidationForm['controls'].eMail.errors.pattern">
+                    <span class="text-gray"><em translate>You must enter a valid email</em></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="email" translate="Confirm email"></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="ConfirmEmail"
+                  formControlName="ConfirmEmail"
+                  autocomplete="confirmEmail"
+                  [placeholder]="'Email' | translate"
+                  value=""
+                  required
+                />
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="
+                    !!f.EmailValidationForm['controls'].ConfirmEmail.invalid &&
+                    (!!f.EmailValidationForm['controls'].ConfirmEmail.dirty ||
+                      !!f.EmailValidationForm['controls'].ConfirmEmail.touched)
+                  "
+                >
+                  <div *ngIf="!!f.EmailValidationForm['controls'].ConfirmEmail.errors.required">
+                    <span class="text-gray"><em translate>This field is required</em></span>
+                  </div>
+                  <div *ngIf="!!f.EmailValidationForm['controls'].ConfirmEmail.errors.pattern">
+                    <span class="text-gray"><em translate>You must enter a valid email</em></span>
+                  </div>
+                  <div *ngIf="!!f.EmailValidationForm['controls'].ConfirmEmail.errors?.MatchEmail">
+                    <span class="text-gray"><em translate>Email doesn't match</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <app-pac-addressligth [placeholder]="'Customer Address' | translate" formControlName="pacinfo">
+            </app-pac-addressligth>
+            <div class="invalid-feedback d-block" *ngIf="f.pacinfo.invalid && (f.pacinfo.dirty || f.pacinfo.touched)">
+              <div *ngIf="f.pacinfo.errors?.addressValid">
+                <span class="text-gray"><em translate>Dirección debe ingresar un dirección valida</em></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="mobileNumber" translate>mobileNumber</label>
+                <ngx-intl-tel-input
+                  cssClass="form-control"
+                  [preferredCountries]="[CountryISO.Colombia]"
+                  [enableAutoCountrySelect]="false"
+                  [enablePlaceholder]="true"
+                  [searchCountryFlag]="true"
+                  [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                  [selectFirstCountry]="false"
+                  [selectedCountryISO]="CountryISO.Colombia"
+                  [maxLength]="15"
+                  [tooltipField]="TooltipLabel.Name"
+                  [phoneValidation]="true"
+                  [inputId]="1234"
+                  name="mobileNumber"
+                  formControlName="mobileNumber"
+                ></ngx-intl-tel-input>
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="f.mobileNumber.invalid && (f.mobileNumber.dirty || f.mobileNumber.touched)"
+                >
+                  <div *ngIf="f.mobileNumber.errors.required">
+                    <span class="text-gray"><em translate>This field is required</em></span>
+                  </div>
+                  <div *ngIf="f.mobileNumber.errors.pattern">
+                    <span class="text-gray"><em translate>You must enter a valid mobile number</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row" formGroupName="PasswordValidation">
+              <div class="col-md-6 md-3">
+                <label for="password" translate>Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  formControlName="password"
+                  autocomplete="password"
+                  [placeholder]="'Password' | translate"
+                  value=""
+                  required
+                  (input)="!!f.PasswordValidation['controls'].confirmPassword.updateValueAndValidity()"
+                />
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="
+                    !!f.PasswordValidation['controls'].password.invalid &&
+                    (!!f.PasswordValidation['controls'].password.dirty ||
+                      !!f.PasswordValidation['controls'].password.touched)
+                  "
+                >
+                  <div *ngIf="!!f.PasswordValidation['controls'].password.errors.required">
+                    <span class="text-gray"><em translate>This field is required</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="password" translate>Confirm password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  formControlName="confirmPassword"
+                  autocomplete="confirmPassword"
+                  [placeholder]="'Confirm password' | translate"
+                  value=""
+                  required
+                />
+                <div
+                  class="invalid-feedback d-block"
+                  *ngIf="
+                    !!f.PasswordValidation['controls'].confirmPassword.invalid &&
+                    (!!f.PasswordValidation['controls'].confirmPassword.dirty ||
+                      !!f.PasswordValidation['controls'].confirmPassword.touched)
+                  "
+                >
+                  <div *ngIf="!!f.PasswordValidation['controls'].confirmPassword.errors.required">
+                    <span class="text-gray"><em translate>This field is required</em></span>
+                  </div>
+                  <div *ngIf="!!f.PasswordValidation['controls'].confirmPassword.errors?.MatchPassword">
+                    <span class="text-gray"><em translate>Password doesn't match</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-container *ngIf="empresa">
+              <div class="form-row">
+                <div class="col-md-12 md-3">
+                  <h5><span translate>Tax Information</span></h5>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="showMeFuente"
+                      data-md-icheck
+                      (change)="isReteFuente($event)"
+                      formControlName="checkretefuente"
+                    />
+                    <span class="text-gray">Somos Autoretenedores de Fuente</span>
+                    <div *ngIf="markedFuente">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="autofuente"
+                        formControlName="autoReteFuente"
+                        autocomplete="autoretefuente"
+                        [placeholder]="'No de resolución' | translate"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="showMeIca"
+                      data-md-icheck
+                      (change)="isReteICA($event)"
+                      formControlName="checkreteica"
+                    />
+                    <span class="text-gray">Somos Autoretenedores de ICA</span>
+                    <div *ngIf="markedIca">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="autoica"
+                        formControlName="autoReteICA"
+                        autocomplete="autoreteica"
+                        [placeholder]="'No de resolución' | translate"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" formControlName="terminos" />
+                  <span class="link" (click)="terminos()" translate>I agree to the terms and conditions</span>
+                  <div
+                    class="invalid-feedback d-block"
+                    *ngIf="!!f.terminos.invalid && (!!f.terminos.dirty || !!f.terminos.touched)"
+                  >
+                    <div *ngIf="!!f.terminos.errors.required">
+                      <span class="text-gray"><em translate>This field is required</em></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row" [hidden]="!error || isLoading">
+              <div class="col-md-2 md-3"></div>
+              <div class="col-md-8 md-3 text-center">
+                <div class="alert alert-danger">
+                  {{ error | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-3 md-3"></div>
+              <div class="col-md-3 mb-3">
+                <button class="btn btn-primary w-100 bold" type="submit" [disabled]="registryForm.invalid || isLoading">
+                  <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+                  <span translate>Register</span>
+                </button>
+              </div>
+              <div class="col-md-3 mb-3">
+                <button class="btn btn-primary w-100 bold" type="button" (click)="cancel()">
+                  <i class="fas fa-cog fa-spin" [hidden]="!isCanceling"></i>
+                  <span translate>Cancel</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

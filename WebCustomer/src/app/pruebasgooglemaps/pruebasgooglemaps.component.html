@@ -1,0 +1,15 @@
+<form>
+  <p>pruebasgooglemaps works!</p>
+
+  <!--<agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    (mapClick)="mapClicked($event.coords.lat, $event.coords.lng)"
+    [zoom]="zoom"
+  >
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>-->
+  <input ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)" />
+  {{ formattedaddress }}
+  <input type="text" />
+</form>
