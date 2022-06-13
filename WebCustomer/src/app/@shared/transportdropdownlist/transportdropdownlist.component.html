@@ -1,0 +1,44 @@
+<!-- <div class="container-fluid"> -->
+<!-- <div class="row">
+  <div class="col-md-12">
+    <label for="Customer city" translate [hidden]="true">Medio de transporte</label>
+    <select class="form-control" [(ngModel)]="selectedtrans" (ngModelChange)="onChangeTransport($event)">
+      <option [ngValue]="null" disabled translate>Select transport</option>
+      <option *ngFor="let item of transporteList" [value]="item.code">{{ item.name }}</option>
+    </select>
+  </div>
+</div> -->
+<div class="row">
+  <div class="col-md-12">
+    <ng-select
+      appearance="outline"
+      [searchable]="false"
+      [items]="transporteList"
+      bindLabel="tp_name"
+      bindValue="tp_code"
+      [placeholder]="'Select package type' | translate"
+      [(ngModel)]="selectedtrans"
+      (ngModelChange)="onChangeTransport($event)"
+      [disabled]="isDisabled"
+      (click)="onFocus()"
+    >
+      <ng-template ng-label-tmp let-item="item">
+        <img height="25" width="25" [src]="item.image" />
+        {{ item.tp_name }}
+      </ng-template>
+      <ng-template ng-option-tmp let-item="item" let-index="index">
+        <img height="40" width="40" [src]="item.image" />
+        {{ item.tp_name }}
+        <br />
+        <b>Limite Peso</b>
+        <br />
+        {{ item.weightLimit }} Kg.
+        <br />
+        <b>Limite Tamaño</b>
+        <br />
+        {{ item.sizeLimit }}
+      </ng-template>
+    </ng-select>
+  </div>
+</div>
+<!-- </div> -->

@@ -1,0 +1,54 @@
+<!-- <div class="form-row">
+  <div class="col-md-12 mb-3"> -->
+<div class="row">
+  <div class="col-md-1 bg-1">
+    <h1>{{ idClassP }}</h1>
+    <span class="btn-floating pointer" (click)="deleteaddress(_idClass)" [hidden]="hidden"
+      ><i class="fas fa-trash-alt"></i
+    ></span>
+  </div>
+
+  <div class="col-md-11 bg-2 input">
+    <input
+      id="{{ _idClass }}"
+      #someInput
+      ngx-google-places-autocomplete
+      [options]="options"
+      #placesRef="ngx-places"
+      (onAddressChange)="AddressChange($event)"
+      (onAutocompleteSelected)="AutocompleteSelected($event)"
+      (onGermanAddressMapped)="GermanAddressMapped($event)"
+      (onLocationSelected)="LocationSelected($event)"
+      (onChange)="Change($event)"
+      class="form-control"
+      autocomplete="off"
+      [disabled]="isDisabled"
+      (force-selection)="(true)"
+      (blur)="onblur($event.target.value)"
+      (focus)="onfocus($event.target.value)"
+      [ngModel]="valueAddress"
+    />
+    <br />
+    <input
+      id="{{ _idClass }}AddressSpecifiques"
+      type="text"
+      placeholder="Apto-Torre-Unidad"
+      class="form-control"
+      [ngModel]="addressSpecifiques"
+      [disabled]="isDisabled"
+      (blur)="onbluras($event.target.value)"
+    /><br />
+    <textarea
+      id="{{ _idClass }}detail"
+      type="text"
+      placeholder="Instrucciones"
+      class="form-control"
+      rows="1"
+      [disabled]="isDisabled"
+      [ngModel]="detail"
+      (blur)="onblurins($event.target.value)"
+    ></textarea>
+  </div>
+</div>
+<!-- </div>
+</div> -->

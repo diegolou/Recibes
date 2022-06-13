@@ -1,0 +1,26 @@
+@import "src/theme/theme-variables";
+.yellow {
+  background-color: $yellow;
+}
+.card {
+  border-radius: 10px 10px 10px 10px;
+}
+.card-header {
+  border-radius: 10px 10px 0px 0px;
+}
+// border-radius: 10px 0px 0px 10px;
+
+.card_body {
+  .card-header {
+    border-radius: 0px 0px 10px 10px;
+  }
+}
+
+.valor {
+  line-height: 2px;
+}
+
+.linea {
+  border-top-style: solid;
+  border-color: #ced4da;
+}

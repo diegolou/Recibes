@@ -1,0 +1,37 @@
+<div class="form-row">
+  <div class="col-md-6">
+    <label for="propina" translate>Tip</label>
+    <select
+      id="propina"
+      class="form-control"
+      [(ngModel)]="propinavalue"
+      (change)="onChangeVasegurar($event.target.value)"
+    >
+      <option [ngValue]="null" disabled translate>Select Tip</option>
+      <option *ngFor="let item of tipList" [value]="item.tip" class="text-right">
+        <span *ngIf="item.tip != -1">{{ item.value | currency }}</span
+        ><span *ngIf="item.tip == -1">{{ item.value }}</span>
+      </option>
+    </select>
+    <input
+      id="propinaov"
+      currencyMask
+      type="tel"
+      [(ngModel)]="valueov"
+      class="form-control"
+      [hidden]="propinaov"
+      (blur)="onblurPropina($event.target.value)"
+    />
+  </div>
+  <div class="col-md-6">
+    <label for="valorasegurar">Valor Asegurar</label>
+    <input
+      id="valorasegurar"
+      currencyMask
+      type="tel"
+      [(ngModel)]="value"
+      class="form-control"
+      (blur)="onblurValorSeg($event.target.value)"
+    />
+  </div>
+</div>

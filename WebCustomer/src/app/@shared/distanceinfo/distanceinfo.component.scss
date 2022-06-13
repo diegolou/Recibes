@@ -1,0 +1,22 @@
+@import "src/theme/theme-variables";
+.row {
+  margin: auto;
+  border-radius: 10px 10px 10px 10px;
+}
+.bg-1 {
+  color: $black;
+  background-color: $yellow;
+  border: #ced4da 1px solid;
+  text-align: center;
+  border-radius: 10px 0px 0px 10px;
+
+  // padding: 10px;
+}
+
+.bg-2 {
+  border: #ced4da 1px solid;
+  border-radius: 0px 10px 10px 0px;
+  // line-height: 2px;
+  text-align: center;
+  // padding: 10px;
+}

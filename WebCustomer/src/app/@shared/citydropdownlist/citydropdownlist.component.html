@@ -1,0 +1,12 @@
+<!-- <div class="container-fluid"> -->
+<div class="row">
+  <div class="col-md-12">
+    <label for="Customer city" translate [hidden]="true">City</label>
+    <!-- <input type="text" class="form-control" id="crypto" /> -->
+    <select class="form-control" [(ngModel)]="selectedCity" (ngModelChange)="onChangeCity($event)" (focus)="onFocus()">
+      <option [ngValue]="null" disabled translate>Select City</option>
+      <option *ngFor="let item of citiesList" [value]="item.codeGuid">{{ item.name }}</option>
+    </select>
+  </div>
+</div>
+<!-- </div> -->

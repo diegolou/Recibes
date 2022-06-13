@@ -1,0 +1,34 @@
+<div [formGroup]="_idpersonForm" class="input-group">
+  <input
+    type="text"
+    class="form-control input-1"
+    id="PersonId"
+    formControlName="PersonId"
+    autocomplete="PersonId"
+    [placeholder]="'PersonId' | translate"
+    (keyup)="onKey($event)"
+    required
+    [disabled]="_isDisabled"
+    [mask]="_mask"
+    [validation]="true"
+  />
+  <ng-container *ngIf="_hideDigit">
+    <h5>-</h5>
+    <input
+      type="text"
+      class="form-control"
+      id="VerifDigitId"
+      formControlName="verifdigitid"
+      autocomplete="Digito de Verificación"
+      [placeholder]="'VerifDigitId' | translate"
+      readonly="true"
+      [disabled]="_isDisabled"
+    />
+  </ng-container>
+  <div class="invalid-feedback d-block" *ngIf="f.PersonId.invalid && (f.PersonId.dirty || f.PersonId.touched)">
+    <div *ngIf="f.PersonId.errors.required">
+      <span class="text-gray"><em translate>This field is required</em></span>
+    </div>
+    <div *ngIf="f.PersonId.invalid">No tiene el formato valido</div>
+  </div>
+</div>

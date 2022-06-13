@@ -1,0 +1,16 @@
+@import "src/theme/theme-variables";
+.custom-control-input:checked ~ .custom-control-label::before {
+  // color: #ced4da;
+  color: $black;
+  border-color: $yellow;
+  background-color: $yellow;
+}
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #ced4da;
+  background-color: $black;
+  transform: translateX(0.75rem);
+}
+
+.custom-switch .custom-control-label::after {
+  background-color: $black;
+}

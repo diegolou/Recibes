@@ -1,0 +1,41 @@
+<div class="form-row">
+  <div class="col-md-8 mb-3">
+    <label for="pacAddLigth" translate>Address</label>
+    <input
+      id="pacAddLigth"
+      #someInput
+      ngx-google-places-autocomplete
+      [options]="options"
+      #placesRef="ngx-places"
+      (onAddressChange)="AddressChange($event)"
+      (onAutocompleteSelected)="AutocompleteSelected($event)"
+      (onGermanAddressMapped)="GermanAddressMapped($event)"
+      (onLocationSelected)="LocationSelected($event)"
+      (onChange)="Change($event)"
+      class="form-control"
+      autocomplete="nope"
+      list="autocompleteOff"
+      [disabled]="isDisabled"
+      (force-selection)="(true)"
+      (blur)="onblur($event.target.value)"
+      (focus)="onfocus($event.target.value)"
+      placeholder="{{ placeholder }}"
+      [ngModel]="valueAddress"
+      (change)="prueba($event.target.value)"
+    />
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="AddressSpecifiques" translate>Detail Address</label>
+    <input
+      id="AddressSpecifiques"
+      type="text"
+      placeholder="Apto-Torre-Unidad"
+      class="form-control"
+      [ngModel]="addressSpecifiques"
+      [disabled]="isDisabled"
+      (blur)="onbluras($event.target.value)"
+      autocomplete="nope"
+      list="autocompleteOff"
+    />
+  </div>
+</div>

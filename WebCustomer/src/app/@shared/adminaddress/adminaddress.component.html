@@ -1,0 +1,80 @@
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="addressList">
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <div *ngFor="let address of addressList.controls; let i = index">
+          <div [formGroupName]="i">
+            <app-pac-address
+              formControlName="pacaddress"
+              [idclass]="i"
+              [hidden]="validHiddencontrol(i)"
+              (deleteAddress)="deleteAddress($event)"
+              (onDataChange)="procesacontrol($event, 0)"
+            ></app-pac-address>
+
+            <div
+              class="invalid-feedback d-block"
+              *ngIf="
+                addressList.controls[i].get('pacaddress').invalid &&
+                (addressList.controls[i].get('pacaddress').dirty || addressList.controls[i].get('pacaddress').touched)
+              "
+            >
+              <div *ngIf="addressList.controls[i].get('pacaddress').errors?.required">
+                <span class="text-gray"><em translate>This field is required</em></span>
+              </div>
+              <div *ngIf="addressList.controls[i].get('pacaddress').errors?.addressValid">
+                <span class="text-gray"><em translate>Dirección debe ingresar un dirección valida</em></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 md-3">
+      <button type="button" class="btn btn-sm btn-primary" (click)="addpacAddress()" [disabled]="!validAddAddress">
+        <i class="fas fa-plus"></i>
+        <span class="bold" translate>Añadir Dirección</span>
+      </button>
+    </div>
+    <div class="col-md-1 md-3"></div>
+    <div class="col-md-4 md-3">
+      <div class="custom-control custom-switch float-right">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="customSwitch1"
+          [(ngModel)]="idayvuelta"
+          (change)="changechick($event)"
+          formControlName="checkiv"
+        />
+        <label class="custom-control-label" for="customSwitch1">Ida y Vuelta</label>
+      </div>
+    </div>
+    <div class="col-md-1 md-3"></div>
+  </div>
+</form>
+<!-- <ng-template #container> </ng-template>
+<div class="form-row">
+  <div class="col-md-6 md-3">
+    <button type="button" class="btn btn-sm btn-primary" (click)="addComponent(pacAddressComponent, false)">
+      <i class="fas fa-plus"></i>
+      <span class="bold" translate>Añadir Dirección</span>
+    </button>
+  </div>
+  <div class="col-md-1 md-3"></div>
+  <div class="col-md-4 md-3">
+    <div class="custom-control custom-switch float-right">
+      <input
+        type="checkbox"
+        class="custom-control-input"
+        id="customSwitch1"
+        [(ngModel)]="idayvuelta"
+        (change)="changechick($event)"
+      />
+      <label class="custom-control-label" for="customSwitch1">Ida y Vuelta</label>
+    </div>
+  </div>
+  <div class="col-md-1 md-3"></div>
+</div> -->

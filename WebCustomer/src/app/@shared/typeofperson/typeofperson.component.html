@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <label for="type of Person" translate [hidden]="true">Type of Person</label>
+
+    <select
+      class="form-control"
+      [(ngModel)]="selectedTypeOfPerson"
+      (ngModelChange)="onChangeTypeOfPerson($event)"
+      [disabled]="isDisabled"
+    >
+      <option [ngValue]="null" disabled translate>Select Type of Person</option>
+      <option *ngFor="let item of typeofperson" [value]="item.code">{{ item.name }}</option>
+    </select>
+  </div>
+</div>

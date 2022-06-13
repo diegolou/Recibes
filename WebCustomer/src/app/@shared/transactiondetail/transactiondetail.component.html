@@ -1,0 +1,82 @@
+<div class="form-row">
+  <div class="col-md-12 mb-3">
+    <div class="card">
+      <div class="card-header yellow bold text-center">
+        <span translate>Transaction detail</span>
+      </div>
+      <div class="card-body">
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3"><span translate>Detail</span></div>
+          <div class="col-md-7 mb-3 text-right">{{ detalle }}</div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3">Plan</div>
+          <div class="col-md-7 mb-3 text-right">{{ plan }}</div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3"><span translate>Plan balance</span></div>
+          <div class="col-md-7 mb-3 text-right">{{ saldoplan | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3">Distancia</div>
+          <div class="col-md-7 mb-3 text-right">{{ distancia | number }} Km</div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-md-5 mb-3"></div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3">Tarifa Base</div>
+          <div class="col-md-7 mb-3 text-right">{{ tarifabase | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="brecargodist">
+          <div class="col-md-5 mb-3">Valor Distancia Recorrida</div>
+          <div class="col-md-7 mb-3 text-right">{{ recargodist | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="brecargociual">
+          <div class="col-md-5 mb-3">Recargo Ciudad Aledaña</div>
+          <div class="col-md-7 mb-3 text-right">{{ recargociual | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="brecargoNocurno">
+          <div class="col-md-5 mb-3">Recargo Nocturno</div>
+          <div class="col-md-7 mb-3 text-right">{{ recargoNocurno | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="brecargoFestivo">
+          <div class="col-md-5 mb-3">Recargo Festivo</div>
+          <div class="col-md-7 mb-3 text-right">{{ recargoFestivo | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="brecargoparadas">
+          <div class="col-md-5 mb-3">Valor Paradas Incluidas</div>
+          <div class="col-md-7 mb-3 text-right">{{ recargoparadas | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="brecaudoidavuelta">
+          <div class="col-md-5 mb-3">Recargo ida y vuelta</div>
+          <div class="col-md-7 mb-3 text-right">{{ recaudoidavuelta | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="bvalorseguro">
+          <div class="col-md-5 mb-3">Valor Seguro</div>
+          <div class="col-md-7 mb-3 text-right">{{ valorseguro | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor" *ngIf="bpropina">
+          <div class="col-md-5 mb-3">Propina</div>
+          <div class="col-md-7 mb-3 text-right">{{ propina | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor linea">
+          <div class="col-md-5 mb-3"></div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3">Valor Total</div>
+          <div class="col-md-7 mb-3 text-right">{{ valorTotal | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3">Descuento</div>
+          <div class="col-md-7 mb-3 text-right">{{ descuento | currency }}</div>
+        </div>
+        <div class="row justify-content-md-center valor">
+          <div class="col-md-5 mb-3 bold">Valor a pagar</div>
+          <div class="col-md-7 mb-3 text-right bold">{{ valorpagar | currency }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3"></div>
+</div>
