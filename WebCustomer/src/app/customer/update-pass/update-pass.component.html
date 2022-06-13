@@ -1,0 +1,73 @@
+<form (ngSubmit)="changePassword()" [formGroup]="passForm" class="needs-validation" novalidate autocomplete="off">
+  <div class="container">
+    <div class="form-row" formGroupName="PasswordValidation">
+      <div class="col-md-6 md-3">
+        <label for="password" translate>Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          autocomplete="password"
+          [placeholder]="'Password' | translate"
+          value=""
+          required
+          (input)="!!f.PasswordValidation['controls'].confirmPassword.updateValueAndValidity()"
+        />
+        <div
+          class="invalid-feedback d-block"
+          *ngIf="
+            !!f.PasswordValidation['controls'].password.invalid &&
+            (!!f.PasswordValidation['controls'].password.dirty || !!f.PasswordValidation['controls'].password.touched)
+          "
+        >
+          <div *ngIf="!!f.PasswordValidation['controls'].password.errors.required">
+            <span class="text-gray"><em translate>This field is required</em></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="password" translate>Confirm password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          autocomplete="confirmPassword"
+          [placeholder]="'Confirm password' | translate"
+          value=""
+          required
+        />
+        <div
+          class="invalid-feedback d-block"
+          *ngIf="
+            !!f.PasswordValidation['controls'].confirmPassword.invalid &&
+            (!!f.PasswordValidation['controls'].confirmPassword.dirty ||
+              !!f.PasswordValidation['controls'].confirmPassword.touched)
+          "
+        >
+          <div *ngIf="!!f.PasswordValidation['controls'].confirmPassword.errors.required">
+            <span class="text-gray"><em translate>This field is required</em></span>
+          </div>
+          <div *ngIf="!!f.PasswordValidation['controls'].confirmPassword.errors?.MatchPassword">
+            <span class="text-gray"><em translate>Password doesn't match</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-primary w-100 bold" type="submit" [disabled]="passForm.invalid || isLoadingPass">
+          <i class="fas fa-cog fa-spin" [hidden]="!isLoadingPass"></i>
+          <span translate>Update</span>
+        </button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-primary w-100 bold" type="button" (click)="cancelPass()">
+          <i class="fas fa-cog fa-spin" [hidden]="!isCancelingPass"></i>
+          <span translate>Cancel</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

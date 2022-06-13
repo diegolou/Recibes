@@ -1,0 +1,19 @@
+@import "src/theme/theme-variables";
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: black;
+  font-weight: bold;
+}
+.input-1 {
+  width: 80%;
+}

@@ -1,0 +1,438 @@
+<form (ngSubmit)="Update()" [formGroup]="registryForm" class="needs-validation" novalidate autocomplete="off">
+  <div class="container">
+    <div class="card mt-2">
+      <div class="card-header d-flex align-items-center">
+        <h5 class="card-title"><span translate>Información General</span></h5>
+      </div>
+      <!-- </div> -->
+      <div class="card-body">
+        <div class="form-row">
+          <div class="col-md-5 mb-3">
+            <label for="TypeOfPerson"><span translate>Type of Person</span></label>
+            <app-typeofperson
+              (onDataChange)="onTypeOfPersonChange($event)"
+              formControlName="typeOfPerson"
+              [dataSource]="TypeOfPesronList"
+            >
+            </app-typeofperson>
+          </div>
+          <div class="col-md-7 mb-3">
+            <label for="idNumber"><span translate>Person Id</span></label>
+            <app-idperson
+              [typeOfPerson]="infoTypeofPerson.code"
+              [Mask]="infoTypeofPerson.mask"
+              formControlName="idNumber"
+            ></app-idperson>
+            <!-- <div class="input-group">
+              <input
+                type="text"
+                class="form-control input-1"
+                id="PersonId"
+                formControlName="PersonId"
+                autocomplete="PersonId"
+                [placeholder]="'PersonId' | translate"
+                value=""
+                (keyup)="onKey($event)"
+                pattern="\d+"
+                maxlength="10"
+                required
+              />
+              <ng-container *ngIf="!hideDigit">
+                -
+                <input
+                  type="text"
+                  class="form-control"
+                  id="VerifDigitId"
+                  formControlName="verifdigitid"
+                  autocomplete="Digito de Verificación"
+                  [placeholder]="'VerifDigitId' | translate"
+                  value=""
+                  readonly="true"
+                />
+              </ng-container>
+              <div
+                class="invalid-feedback d-block"
+                *ngIf="!!f.PersonId.invalid && (!!f.PersonId.dirty || !!f.PersonId.touched)"
+              >
+                <div *ngIf="!!f.PersonId.errors.required">
+                  <span class="text-gray"><em translate>This field is required</em></span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <div *ngIf="isCompany; else elseBlock">
+              <label for="firstName" translate>Company Name</label>
+            </div>
+            <ng-template #elseBlock>
+              <label for="firstName" translate>First name</label>
+            </ng-template>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              formControlName="firstName"
+              autocomplete="Enterprise Name"
+              [placeholder]="'Enterprise Name' | translate"
+              value=""
+              required
+            />
+            <div
+              class="invalid-feedback d-block"
+              *ngIf="!!f.firstName.invalid && (!!f.firstName.dirty || !!f.firstName.touched)"
+            >
+              <div *ngIf="!!f.firstName.errors.required">
+                <span class="text-gray"><em translate>This field is required</em></span>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="!isCompany">
+            <div class="col-md-6 mb-3" ng-hide="hideDigit() === true">
+              <label for="lastName" translate>Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+                autocomplete="lastName"
+                [placeholder]="'Last name' | translate"
+                value=""
+              />
+              <div
+                class="invalid-feedback d-block"
+                *ngIf="!!f.lastName.invalid && (!!f.lastName.dirty || !!f.lastName.touched)"
+              >
+                <div *ngIf="!!f.lastName.errors.required">
+                  <span class="text-gray"><em translate>This field is required</em></span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <app-pac-addressligth [placeholder]="'Customer Address' | translate" formControlName="pacinfo">
+        </app-pac-addressligth>
+        <div class="invalid-feedback d-block" *ngIf="f.pacinfo.invalid && (f.pacinfo.dirty || f.pacinfo.touched)">
+          <div *ngIf="f.pacinfo.errors?.addressValid">
+            <span class="text-gray"><em translate>Dirección debe ingresar un dirección valida</em></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="mobileNumber" translate>mobileNumber</label>
+            <ngx-intl-tel-input
+              [cssClass]="'form-control'"
+              [preferredCountries]="[CountryISO.Colombia]"
+              [enableAutoCountrySelect]="false"
+              [enablePlaceholder]="true"
+              [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+              [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.Colombia"
+              [maxLength]="15"
+              [tooltipField]="TooltipLabel.Name"
+              [phoneValidation]="true"
+              [inputId]="1234"
+              name="mobileNumber"
+              formControlName="mobileNumber"
+            ></ngx-intl-tel-input>
+            <div
+              class="invalid-feedback d-block"
+              *ngIf="!!f.mobileNumber.invalid && (!!f.mobileNumber.dirty || !!f.mobileNumber.touched)"
+            >
+              <div *ngIf="!!f.mobileNumber.errors.required">
+                <span class="text-gray"><em translate>This field is required</em></span>
+              </div>
+              <div *ngIf="!!f.mobileNumber.errors.pattern">
+                <span class="text-gray"><em translate>You must enter a valid mobile number</em></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header d-flex align-items-center">
+        <h5 class="card-title"><span translate>Información Tributaria</span></h5>
+      </div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <div class="form-check">
+              <input type="checkbox" data-md-icheck (change)="isReteFuente($event)" formControlName="reteFuente" />
+              <span class="text-gray">Somos Autoretenedores de Fuente</span>
+              <div *ngIf="markedFuente">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="autofuente"
+                  formControlName="actaReteFuente"
+                  autocomplete="actaretefuente"
+                  [placeholder]="'No de resolución' | translate"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="form-check">
+              <input type="checkbox" data-md-icheck (change)="isReteICA($event)" formControlName="reteIca" />
+              <span class="text-gray">Somos Autoretenedores de ICA</span>
+              <div *ngIf="markedIca">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="autoica"
+                  formControlName="actaReteICA"
+                  autocomplete="actareteica"
+                  [placeholder]="'No de resolución' | translate"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="form-row d-flex justify-content-center align-items-center">
+    <div class="col-md-3 mb-3">
+      <button class="btn btn-primary w-100 bold" type="submit" [disabled]="registryForm.invalid || isLoading">
+        <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+        <span translate>Update</span>
+      </button>
+    </div>
+    <div class="col-md-3 mb-3">
+      <button class="btn btn-primary w-100 bold" type="button" (click)="cancel()">
+        <i class="fas fa-cog fa-spin" [hidden]="!isCanceling"></i>
+        <span translate>Cancel</span>
+      </button>
+    </div>
+  </div>
+  <!-- <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h5 class="card-title"><span translate>Información Tributaria</span></h5>
+      </div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="col-md-6 mb-3"></div>
+          <div class="col-md-6 mb-3"></div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</form>
+<!-- <div class="container">
+    <div class="card col-md-12 mt-3 mx-auto">
+      <div class="card-body">
+        <h4>Información General</h4>
+      </div>
+    </div>
+  </div> -->
+<!-- <div class="container">
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <app-typeofperson
+          (onDataChange)="onTypeOfPersonChange($event)"
+          formControlName="TypeOfPerson"
+          [dataSource]="TypeOfPesronList"
+        >
+        </app-typeofperson>
+      </div>
+      <div class="col-md-7 mb-3">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control input-1"
+            id="PersonId"
+            formControlName="PersonId"
+            autocomplete="PersonId"
+            [placeholder]="'PersonId' | translate"
+            value=""
+            (change)="onKey($event)"
+            pattern="\d+"
+            maxlength="10"
+            required
+          />
+          <div
+            class="invalid-feedback d-block"
+            *ngIf="!!f.PersonId.invalid && (!!f.PersonId.dirty || !!f.PersonId.touched)"
+          >
+            <div *ngIf="!!f.PersonId.errors.required">
+              <span class="text-gray"><em translate>This field is required</em></span>
+            </div>
+          </div>
+          <ng-container *ngIf="!hideDigit">
+            -
+            <input
+              type="text"
+              class="form-control"
+              id="VerifDigitId"
+              formControlName="verifdigitid"
+              autocomplete="Digito de Verificación"
+              [placeholder]="'VerifDigitId' | translate"
+              value=""
+              disabled="disabled"
+            />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <div class="input-group">
+          <div class="col-md-6 mb-3">
+            <div *ngIf="isCompany; else elseBlock">
+              <label for="firstName" translate>Company Name</label>
+            </div>
+            <ng-template #elseBlock>
+              <label for="firstName" translate>First name</label>
+            </ng-template>
+            <input
+              type="text"
+              class="form-control input-1"
+              id="firstName"
+              formControlName="firstName"
+              autocomplete="Enterprise Name"
+              [placeholder]="'Enterprise Name' | translate"
+              value=""
+              required
+            />
+            <div
+              class="invalid-feedback d-block"
+              *ngIf="!!f.firstName.invalid && (!!f.firstName.dirty || !!f.firstName.touched)"
+            >
+              <div *ngIf="!!f.firstName.errors.required">
+                <span class="text-gray"><em translate>This field is required</em></span>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="!isCompany">
+            <div class="col-md-6 mb-3" ng-hide="hideDigit() === true">
+              <label for="lastName" translate>Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+                autocomplete="lastName"
+                [placeholder]="'Last name' | translate"
+                value=""
+              />
+              <div
+                class="invalid-feedback d-block"
+                *ngIf="!!f.lastName.invalid && (!!f.lastName.dirty || !!f.lastName.touched)"
+              >
+                <div *ngIf="!!f.lastName.errors.required">
+                  <span class="text-gray"><em translate>This field is required</em></span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <app-pac-addressligth [placeholder]="'Customer Address' | translate" formControlName="pacinfo">
+    </app-pac-addressligth>
+    <div class="invalid-feedback d-block" *ngIf="f.pacinfo.invalid && (f.pacinfo.dirty || f.pacinfo.touched)">
+      <div *ngIf="f.pacinfo.errors?.addressValid">
+        <span class="text-gray"><em translate>Dirección debe ingresar un dirección valida</em></span>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="mobileNumber" translate>mobileNumber</label>
+        <ngx-intl-tel-input
+          [cssClass]="'form-control'"
+          [preferredCountries]="[CountryISO.Colombia]"
+          [enableAutoCountrySelect]="false"
+          [enablePlaceholder]="true"
+          [searchCountryFlag]="true"
+          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+          [selectFirstCountry]="false"
+          [selectedCountryISO]="CountryISO.Colombia"
+          [maxLength]="15"
+          [tooltipField]="TooltipLabel.Name"
+          [phoneValidation]="true"
+          [inputId]="1234"
+          name="mobileNumber"
+          formControlName="mobileNumber"
+        ></ngx-intl-tel-input>
+        <div
+          class="invalid-feedback d-block"
+          *ngIf="!!f.mobileNumber.invalid && (!!f.mobileNumber.dirty || !!f.mobileNumber.touched)"
+        >
+          <div *ngIf="!!f.mobileNumber.errors.required">
+            <span class="text-gray"><em translate>This field is required</em></span>
+          </div>
+          <div *ngIf="!!f.mobileNumber.errors.pattern">
+            <span class="text-gray"><em translate>You must enter a valid mobile number</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card col-md-12 mt-3 mx-auto">
+      <div class="card-body">
+        <h4>Información Tributaria</h4>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <div class="form-check">
+          <input type="checkbox" [(ngModel)]="showMeFuente" data-md-icheck (change)="isReteFuente($event)" />
+          <span class="text-gray">Somos Autoretenedores de Fuente</span>
+          <div *ngIf="markedFuente">
+            <input
+              type="text"
+              class="form-control"
+              id="autofuente"
+              formControlName="autoReteFuente"
+              autocomplete="autoretefuente"
+              [placeholder]="'No de resolución' | translate"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="form-check">
+          <input type="checkbox" [(ngModel)]="showMeIca" data-md-icheck (change)="isReteICA($event)" />
+          <span class="text-gray">Somos Autoretenedores de ICA</span>
+          <div *ngIf="markedIca">
+            <input
+              type="text"
+              class="form-control"
+              id="autoica"
+              formControlName="autoReteICA"
+              autocomplete="autoreteica"
+              [placeholder]="'No de resolución' | translate"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- BOTONES DE UPDATE Y CANCEL -->
+<!-- <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <button class="btn btn-primary w-100 bold" type="submit" [disabled]="registryForm.invalid || isLoading">
+        <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+        <span translate>Update</span>
+      </button>
+    </div>
+    <div class="col-md-3 mb-3">
+      <button class="btn btn-primary w-100 bold" type="button" (click)="cancel()">
+        <i class="fas fa-cog fa-spin" [hidden]="!isCanceling"></i>
+        <span translate>Cancel</span>
+      </button>
+    </div>
+  </div> -->
+<!-- </form> -->
