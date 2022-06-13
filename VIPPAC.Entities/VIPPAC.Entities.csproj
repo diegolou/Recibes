@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExternalService\**" />
+    <EmbeddedResource Remove="ExternalService\**" />
+    <None Remove="ExternalService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Agent.cs" />
+    <Compile Remove="BusyAgent.cs" />
+    <Compile Remove="CallHistoryTrace.cs" />
+    <Compile Remove="DepartamenCity.cs" />
+    <Compile Remove="Menu.cs" />
+    <Compile Remove="Parameters.cs" />
+    <Compile Remove="PDI.cs" />
+    <Compile Remove="Requests\AddClienteRequest.cs" />
+    <Compile Remove="Requests\AddUserRequest.cs" />
+    <Compile Remove="Requests\ClienteIdRequest.cs" />
+    <Compile Remove="Requests\ConsultaClienteRequest.cs" />
+    <Compile Remove="Requests\ConsultaMovimientosClienteRequest.cs" />
+    <Compile Remove="Requests\ConsultaMovimientosRequest.cs" />
+    <Compile Remove="Requests\CrearCuentaRequest.cs" />
+    <Compile Remove="Requests\OperacionRequest.cs" />
+    <Compile Remove="Requests\OperacionTranfRequest.cs" />
+    <Compile Remove="Requests\SaldoRequest.cs" />
+    <Compile Remove="Requests\SendMailWelcomeRequest.cs" />
+    <Compile Remove="ResetPassword.cs" />
+    <Compile Remove="Responses\ConsultaClienteResponse.cs" />
+    <Compile Remove="Responses\ConsultaClientesResponse.cs" />
+    <Compile Remove="Responses\ConsultaMovimientosClienteResponse.cs" />
+    <Compile Remove="Responses\CrearCuentaResponse.cs" />
+    <Compile Remove="Responses\CuentaResponse.cs" />
+    <Compile Remove="Responses\MovimientosResponse.cs" />
+    <Compile Remove="Responses\OperacionResponse.cs" />
+    <Compile Remove="Responses\SaldoResponse.cs" />
+    <Compile Remove="Subsidy.cs" />
+    <Compile Remove="UserPortal.cs" />
+    <Compile Remove="UserPortalTransac.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+</Project>

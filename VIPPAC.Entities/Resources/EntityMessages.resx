@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Address_Required" xml:space="preserve">
+    <value>El campo dirección es obligatorio</value>
+  </data>
+  <data name="Cellphones_Required" xml:space="preserve">
+    <value>Debes ingresar por lo menos un telefono de contacto</value>
+  </data>
+  <data name="CellPhon_Number" xml:space="preserve">
+    <value>El telefono no es valido</value>
+  </data>
+  <data name="City_Required" xml:space="preserve">
+    <value>El campo ciudad es obligatorio</value>
+  </data>
+  <data name="ContactName_Required" xml:space="preserve">
+    <value>El campo nombre de contacto es obligatorio</value>
+  </data>
+  <data name="Device_Required" xml:space="preserve">
+    <value>El Id del dispositivo es requirido</value>
+  </data>
+  <data name="EmailAddress_FormatEmail" xml:space="preserve">
+    <value>Email is not valid</value>
+  </data>
+  <data name="Email_FormatEmail" xml:space="preserve">
+    <value>Email no es valido</value>
+  </data>
+  <data name="EmailAddress_Required" xml:space="preserve">
+    <value>Email is required</value>
+  </data>
+  <data name="Email_Required" xml:space="preserve">
+    <value>Email es requerido</value>
+  </data>
+  <data name="Telefono_Required" xml:space="preserve">
+    <value>Telefono es Requerido</value>
+  </data>
+  <data name="Direccion_Required" xml:space="preserve">
+    <value>Direccion es Requerido</value>
+  </data>
+  <data name="Genre_Required" xml:space="preserve">
+    <value>El campo genero es obligatorio</value>
+  </data>
+  <data name="Id_Required" xml:space="preserve">
+    <value>El campo identificación es obligatorio</value>
+  </data>
+  <data name="UPId_Required" xml:space="preserve">
+    <value>El número de Identificación es Obligatorio</value>
+  </data>
+  <data name="UPTypeId_Required" xml:space="preserve">
+    <value>El tipo de Identificación es Obligatorio</value>
+  </data>
+  <data name="CliId_Required" xml:space="preserve">
+    <value>El Id del cliente es requerido</value>
+  </data>
+  <data name="FechaIni_Required" xml:space="preserve">
+    <value>La fecha inicial es requerida</value>
+  </data>
+  <data name="FechaFin_Required" xml:space="preserve">
+    <value>La fecha final es requerida</value>
+  </data>
+  <data name="Saldo_Required" xml:space="preserve">
+    <value>El saldo de la cuenta es requerido</value>
+  </data>
+  <data name="TipoCuenta_Required" xml:space="preserve">
+    <value>El tipo de cuenta es requerido</value>
+  </data>
+  <data name="NumCuenta_Required" xml:space="preserve">
+    <value>El número de la cuenta es requerido</value>
+  </data>
+  <data name="NumCuentaDestino_Required" xml:space="preserve">
+    <value>El número de la cuenta Destino es requerido</value>
+  </data>
+  <data name="ValorConsignacion_Required" xml:space="preserve">
+    <value>El valor de la consignacion es requerido</value>
+  </data>
+  <data name="LastName_Required" xml:space="preserve">
+    <value>LastName is required</value>
+  </data>
+  <data name="FirstName_Required" xml:space="preserve">
+    <value>FirstName is required</value>
+  </data>
+  <data name="Nombres_Required" xml:space="preserve">
+    <value>Nombres es Requerido</value>
+  </data>
+  <data name="Apellidos_Required" xml:space="preserve">
+    <value>Apellidos es Requeridos</value>
+  </data>
+  <data name="Password_LengthPassword" xml:space="preserve">
+    <value>Password should fear more than 4 characters</value>
+  </data>
+  <data name="Password_Required" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="Position_Required" xml:space="preserve">
+    <value>El cargo del funcionario es obligatorio</value>
+  </data>
+  <data name="Role_Required" xml:space="preserve">
+    <value>Role is required</value>
+  </data>
+  <data name="SocialReason_Required" xml:space="preserve">
+    <value>El campo razón social de la empresa es obligatorio</value>
+  </data>
+  <data name="TypeId_Required" xml:space="preserve">
+    <value>Seleccione el tipo de identificación</value>
+  </data>
+  <data name="State_Required" xml:space="preserve">
+    <value>El estado del funcionario es obligatorio</value>
+  </data>
+  <data name="User_Required" xml:space="preserve">
+    <value>El usuario es obligatorio y corresponde al noDoc_CodTypeDoc</value>
+  </data>
+  <data name="UserType_Required" xml:space="preserve">
+    <value>Debe definir el tipo de usuario a registrar</value>
+  </data>
+  <data name="Dept_Required" xml:space="preserve">
+    <value>El campo departamento es obligatorio</value>
+  </data>
+  <data name="OpenTokSessionId_Required" xml:space="preserve">
+    <value>El Session Id es requerido</value>
+  </data>
+  <data name="StateCall_Required" xml:space="preserve">
+    <value>El estado de la llamada es requerido</value>
+  </data>
+  <data name="OpenTokAccessToken_Required" xml:space="preserve">
+    <value>El token de acceso al la llamada es obligatorio</value>
+  </data>
+  <data name="StateCall_Valid" xml:space="preserve">
+    <value>El estado de la llamada no es valido</value>
+  </data>
+  <data name="Score_Required" xml:space="preserve">
+    <value>El puntaje de la llamada es requerido</value>
+  </data>
+  <data name="SessionId_Required" xml:space="preserve">
+    <value>El session id es requerido</value>
+  </data>
+  <data name="TokenId_Required" xml:space="preserve">
+    <value>El token id es requerido</value>
+  </data>
+  <data name="AgentUser_Required" xml:space="preserve">
+    <value>El usuario agent es requerido</value>
+  </data>
+  <data name="CallUser_Required" xml:space="preserve">
+    <value>El usuario caller es requerido</value>
+  </data>
+  <data name="PDIField_Length" xml:space="preserve">
+    <value>El campo excede la cantidad de caracteres permitida</value>
+  </data>
+  <data name="PDIField_Required" xml:space="preserve">
+    <value>Todos los campos del PDI son requeridos</value>
+  </data>
+  <data name="Category_Required" xml:space="preserve">
+    <value>Categoria Requerida</value>
+  </data>
+  <data name="IdParameter__Required" xml:space="preserve">
+    <value>Id Parametro Requerido</value>
+  </data>
+  <data name="ValueParameter_Required" xml:space="preserve">
+    <value>Valor parametro rerquerido</value>
+  </data>
+  <data name="EndDate_Required" xml:space="preserve">
+    <value>Fecha fin requerida</value>
+  </data>
+  <data name="StartDate_Required" xml:space="preserve">
+    <value>Fecha Inicio requerida</value>
+  </data>
+  <data name="NoSubsidyRequest_Required" xml:space="preserve">
+    <value>El número de solicitud de subsidio es requerido</value>
+  </data>
+  <data name="Reviewer_Required" xml:space="preserve">
+    <value>El nombre de usuario del funcionario es requerido</value>
+  </data>
+  <data name="StateSubsid_Required" xml:space="preserve">
+    <value>El estado de la solicitud de subsidio es requerido</value>
+  </data>
+  <data name="ObservationsSubsidy_Request" xml:space="preserve">
+    <value>El campo observaciones es obligatorio</value>
+  </data>
+  <data name="NumberSapSubsidy_Request" xml:space="preserve">
+    <value>El campo número Sap es requerido</value>
+  </data>
+  <data name="Origin_Required" xml:space="preserve">
+    <value>Origen es Requerido</value>
+  </data>
+  <data name="MiddleName_Required" xml:space="preserve">
+    <value>MiddleName is required</value>
+  </data>
+  <data name="Profile_Required" xml:space="preserve">
+    <value>Profile is required</value>
+  </data>
+  <data name="Latitude_Required" xml:space="preserve">
+    <value>La latitud es requerida</value>
+  </data>
+  <data name="Longitude_Required" xml:space="preserve">
+    <value>La longitude es requerida</value>
+  </data>
+  <data name="PackerId_Required" xml:space="preserve">
+    <value>El Id del Packer es requerido</value>
+  </data>
+  <data name="CountryCode_Required" xml:space="preserve">
+    <value>CountryCode es requerido.</value>
+  </data>
+  <data name="StateCode_Required" xml:space="preserve">
+    <value>StateCode es requerido.</value>
+  </data>
+  <data name="ActivityId_Required" xml:space="preserve">
+    <value>El Id de la actividad es requerido.</value>
+  </data>
+  <data name="Altitude_Required" xml:space="preserve">
+    <value>La altitud es requerida.</value>
+  </data>
+  <data name="CustomerId_Required" xml:space="preserve">
+    <value>El código del customer es requerido</value>
+  </data>
+  <data name="AddressInfo_Required" xml:space="preserve">
+    <value>La información de las direcciones del destino son requeridas</value>
+  </data>
+  <data name="FilterType_Required" xml:space="preserve">
+    <value>El tipo de filtro es requerido</value>
+  </data>
+  <data name="Remarks_Required" xml:space="preserve">
+    <value>El detalle (Remarks) es requerido</value>
+  </data>
+  <data name="Country_Required" xml:space="preserve">
+    <value>El Codigo del pais es requerido</value>
+  </data>
+  <data name="ActivationCode_Required" xml:space="preserve">
+    <value>El codigo de activacón Requerido</value>
+  </data>
+  <data name="PaymentDetail_Required" xml:space="preserve">
+    <value>La informción del detalle de Pago es requerido</value>
+  </data>
+  <data name="PaymentId_Required" xml:space="preserve">
+    <value>El Id del Pago es requerido</value>
+  </data>
+  <data name="Payment_Required" xml:space="preserve">
+    <value>El pago es requerido</value>
+  </data>
+  <data name="SendDate_Required" xml:space="preserve">
+    <value>La fecha de envio es requerida</value>
+  </data>
+  <data name="TotalDistance_Required" xml:space="preserve">
+    <value>El Total de la distancia es requerido</value>
+  </data>
+  <data name="CodePlanId_Required" xml:space="preserve">
+    <value>El Código del plan es requerido</value>
+  </data>
+  <data name="Value_Required" xml:space="preserve">
+    <value>Valor Requerido</value>
+  </data>
+  <data name="PaymentState_Required" xml:space="preserve">
+    <value>PaymentState es un valor requerido</value>
+  </data>
+  <data name="PaymentValue_Required" xml:space="preserve">
+    <value>PaymentValue es un valor requerido</value>
+  </data>
+  <data name="Reference_Required" xml:space="preserve">
+    <value>Reference es un valor requerido</value>
+  </data>
+</root>
